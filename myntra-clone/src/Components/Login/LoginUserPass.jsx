@@ -1,7 +1,7 @@
 import { Container, Flex, Grid, Heading, InputRightElement, PinInputField, PinInput, Alert, Image, InputGroup, InputLeftAddon, Input, Text, Button, GridItem } from '@chakra-ui/react'
 import React, { useState } from 'react'
 
-const Signup = () => {
+const LoginUserPass = () => {
     const [otpAlert, setOtpAlert] = useState(false)
     const [togalOtp, setTogalOtp] = useState(true)
     const [show, setShow] = React.useState(false)
@@ -34,13 +34,10 @@ const Signup = () => {
                             }
 
                         </Grid>
-                        <Grid gap={3}>
-                        <GridItem>
-                            <Input variant='outline' borderRadius="0px" placeholder='Enter Your Full Name' />
-                            </GridItem>
+                        <Grid>
 
                             <GridItem>
-                            <Input variant='outline' borderRadius="0px" placeholder='Enter Your Email' />
+                            <Input variant='outline' placeholder='Enter Your Email' />
                             </GridItem>
                             <GridItem>
                                 <InputGroup size='md'>
@@ -48,7 +45,6 @@ const Signup = () => {
                                         pr='4.5rem'
                                         type={show ? 'text' : 'password'}
                                         placeholder='Enter Your  Password'
-                                        borderRadius="0px"
                                     />
                                     <InputRightElement width='4.5rem'>
                                         <Button h='1.75rem' size='sm' onClick={handleClick}>
@@ -78,4 +74,4 @@ const Signup = () => {
     )
 }
 
-export default Signup
+export default LoginUserPass
