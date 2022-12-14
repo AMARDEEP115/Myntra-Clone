@@ -1,10 +1,11 @@
 import './App.css';
-import MainRoutes from './RouterPages/MainRoutes';
+import AllRoutes from './Routes/AllRoutes';
+
 
 function App() {
   return (
     <div className="App">
-      <MainRoutes />
+   <AllRoutes/>
     </div>
   );
 }
