@@ -37,7 +37,7 @@ const LoginUserPass = () => {
                         <Grid>
 
                             <GridItem>
-                            <Input variant='outline' placeholder='Enter Your Email' />
+                                <Input variant='outline' placeholder='Enter Your Email' />
                             </GridItem>
                             <GridItem>
                                 <InputGroup size='md'>

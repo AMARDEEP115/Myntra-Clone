@@ -27,10 +27,10 @@ const Login = () => {
                     <Grid gap={5} p={8} display="grid" justifyContent="center">
 
                         <Grid display="grid" alignItems="baseline" textAlign="left" gap={2} ><Heading size="md">Login or Signup</Heading>
-                        {
-                            togalOtp? <Text>Enter Your Mobile Number</Text>:<Text>Enter Your OTP</Text>
-                        }
-                        
+                            {
+                                togalOtp ? <Text>Enter Your Mobile Number</Text> : <Text>Enter Your OTP</Text>
+                            }
+
                         </Grid>
                         <Flex>
                             {

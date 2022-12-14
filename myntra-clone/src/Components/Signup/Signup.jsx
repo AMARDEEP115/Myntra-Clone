@@ -35,12 +35,12 @@ const Signup = () => {
 
                         </Grid>
                         <Grid gap={3}>
-                        <GridItem>
-                            <Input variant='outline' borderRadius="0px" placeholder='Enter Your Full Name' />
+                            <GridItem>
+                                <Input variant='outline' borderRadius="0px" placeholder='Enter Your Full Name' />
                             </GridItem>
 
                             <GridItem>
-                            <Input variant='outline' borderRadius="0px" placeholder='Enter Your Email' />
+                                <Input variant='outline' borderRadius="0px" placeholder='Enter Your Email' />
                             </GridItem>
                             <GridItem>
                                 <InputGroup size='md'>
