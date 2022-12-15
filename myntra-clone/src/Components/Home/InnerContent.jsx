@@ -154,7 +154,7 @@ function InnerContent() {
           style={{
             display: "grid",
             justifyContent: "space-around",
-            gridTemplateColumns: "repeat(5, auto) ",
+            gridTemplateColumns: "repeat(10, auto) ",
             rowGap: "0px",
           }}
         >

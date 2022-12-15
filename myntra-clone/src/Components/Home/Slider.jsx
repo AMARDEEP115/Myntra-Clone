@@ -6,8 +6,7 @@ const delay = 2000;
 const slideshowDot = {   display: "inline-block",
     height: "20px",
     width: "20px",
-    borderRadius: "50%",
-  
+    borderRadius: "50%",  
     cursor: "pointer",
     margin: "15px 7px 0px",
   
