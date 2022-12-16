@@ -1,49 +1,42 @@
 import React from 'react'
 import "./Dashboard.scss"
-import { CircularProgress, Grid, Container, Button, ButtonGroup, CardFooter, Divider, Text, Heading, Stack, Image, CardBody, Card } from '@chakra-ui/react'
-import { Pagination } from '@mui/material'
+import { CircularProgress, Grid } from '@chakra-ui/react'
+import DashboardCard from './Card/DashboardCard'
+import ProductCard from './Card/ProductCard'
+import UserCard from './Card/UserCard'
 
-const Dashboard = ({ data, isLoading, theme }) => {
-    console.log('theme:', theme)
+const Dashboard = ({ data, isLoading, theme, togalDash }) => {
+    console.log('togalDash:', togalDash)
     if (isLoading) {
-        return <CircularProgress isIndeterminate color='green.300' />
+        return <Grid display="grid" justifyContent="center" alignItems="center" h="100vh">
+            <CircularProgress isIndeterminate color='green.300' />
+        </Grid>
     }
-    return (
-        <Container>
-            <Grid display="grid" gridTemplateColumns="1fr" gap="10px">
+    if (togalDash === "dash") {
+        return (
+            <Grid display="grid" gridTemplateColumns="1fr 1fr 1fr 1fr" gap="10px" p="0px" className='dashContainer'>
                 {
                     data.map(el => {
-                        return (<div>
-                            <Card
-                                direction={{ base: 'column', sm: 'row' }}
-                                overflow='hidden'
-                                variant='outline'
-                            >
-                                <Image
-                                    objectFit='cover'
-                                    maxW={{ base: '100%', sm: '200px' }}
-                                    src='https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60'
-                                    alt='Caffe Latte'
-                                />
+                        return (
+                            <DashboardCard key={el.id} el={el} theme={theme} />
+                        )
+                    })
+                }
+            </Grid>
 
-                                <Stack>
-                                    <CardBody>
-                                        <Heading size='md'>The perfect latte</Heading>
 
-                                        <Text py='2'>
-                                            Caffè latte is a coffee beverage of Italian origin made with espresso
-                                            and steamed milk.
-                                        </Text>
-                                    </CardBody>
 
-                                    <CardFooter>
-                                        <Button variant='solid' colorScheme='blue'>
-                                            Buy Latte
-                                        </Button>
-                                    </CardFooter>
-                                </Stack>
-                            </Card>
-                        </div>)
+        )
+    }
+
+    if (togalDash === "product") {
+        return (
+            <Grid display="grid" gridTemplateColumns="1fr 1fr 1fr 1fr" gap="10px" p="0px" className='dashContainer'>
+                {
+                    data.map(el => {
+                        return (
+                            <ProductCard key={el.id} el={el} theme={theme} />
+                        )
                     })
                 }
 
@@ -54,8 +47,31 @@ const Dashboard = ({ data, isLoading, theme }) => {
 
 
 
-        </Container>
-    )
+        )
+    }
+
+
+    if (togalDash === "user") {
+        return (
+            <Grid display="grid" gridTemplateColumns="1fr 1fr 1fr 1fr" gap="10px" p="0px" className='dashContainer'>
+                {
+                    data.map(el => {
+                        return (
+                            <UserCard key={el.id} el={el} theme={theme} />
+
+                        )
+                    })
+                }
+
+
+
+
+            </Grid>
+
+
+
+        )
+    }
 }
 
 export default Dashboard

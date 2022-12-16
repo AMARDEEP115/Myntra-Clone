@@ -9,21 +9,39 @@ import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
 import GamesIcon from '@mui/icons-material/Games';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import "./AdminNav.scss"
-import { MenuButton,MenuItem,MenuList,Menu,IconButton } from '@chakra-ui/react';
+import { MenuButton, MenuItem, MenuList, Menu, IconButton, InputGroup ,InputRightElement,Input} from '@chakra-ui/react';
 
 
 
 const AdminNav = ({ theme, setTheme }) => {
     return (
-        <div className='navbar'>
+        <div className={!theme ? "navbar":"navbarDark"}>
             <div className="wraper">
-                <div className="search">
-                    <input type="text" name="" id="  " placeholder='Search...' />
-                    <SearchIcon />
+                <div>
+                    <InputGroup>
+                        <InputRightElement
+                            pointerEvents='none'
+                            children={<SearchIcon color='gray.300' />}
+                        />
+                        <Input type='text' placeholder='Search For Quarrye'  w={600}/>
+                    </InputGroup>
                 </div>
                 <div className="items">
                     <div className="item">
-                        <LanguageIcon /> English
+                    <Menu >
+                            {({ isOpen }) => (
+                                <>
+                                <LanguageIcon />
+                                    <MenuButton isActive={isOpen}  >
+                                        {isOpen ? 'English' : 'English'}
+                                    </MenuButton>
+                                    <MenuList bg={theme ? "black":"white"}>
+                                        <MenuItem bg={theme ? "black":"white"}>English</MenuItem>
+                                        <MenuItem bg={theme ? "black":"white"}>French</MenuItem>
+                                    </MenuList>
+                                </>
+                            )}
+                        </Menu>
                     </div>
 
                     <div className="item" onClick={() => setTheme(prev => !prev)}>
@@ -45,16 +63,16 @@ const AdminNav = ({ theme, setTheme }) => {
                                 className='icon'
                             />
                             <MenuList>
-                                <MenuItem  command='⌘T'>
+                                <MenuItem command='⌘T'>
                                     New Tab
                                 </MenuItem>
-                                <MenuItem  command='⌘N'>
+                                <MenuItem command='⌘N'>
                                     New Window
                                 </MenuItem>
                                 <MenuItem command='⌘⇧N'>
                                     Open Closed Tab
                                 </MenuItem>
-                                <MenuItem  command='⌘O'>
+                                <MenuItem command='⌘O'>
                                     Open File...
                                 </MenuItem>
                             </MenuList>

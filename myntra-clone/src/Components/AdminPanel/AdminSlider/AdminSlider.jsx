@@ -12,10 +12,11 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import LogoutIcon from '@mui/icons-material/Logout';
 import "./AdminSlider.scss"
-import { MenuButton,MenuItem,MenuList,Button,Menu } from '@chakra-ui/react';
+import { MenuButton, MenuItem, MenuList, Button, Menu } from '@chakra-ui/react';
+import initalData from '../InitialData';
 
 
-const AdminSlider = ({ getData,setTheme}) => {
+const AdminSlider = ({ getData, setTheme, setData, setTogalDash }) => {
     return (
         <div className='sidebar'>
             <div className="top">
@@ -26,18 +27,34 @@ const AdminSlider = ({ getData,setTheme}) => {
             <div className="center">
                 <ul>
                     <p className="title">MAIN</p>
-                    <li><DashboardIcon className='icon' /><span>DashBoard</span></li>
+                    <li onClick={() => {
+                        setData(initalData)
+                        setTogalDash("dash")
+                    }}><DashboardIcon className='icon' /><span>DashBoard</span></li>
                     <p className="title">LISTS</p>
 
-                    <li onClick={() => getData("user")}><PersonIcon className='icon' /><span>Users</span></li>
-                    <li> <ProductionQuantityLimitsIcon  className='icon' /><Menu>
+                    <li onClick={() => {
+                        getData("user")
+                        setTogalDash("user")
+
+                    }}><PersonIcon className='icon' /><span>Users</span></li>
+                    <li> <ProductionQuantityLimitsIcon className='icon' /><Menu>
                         <MenuButton  >
-                           Products
+                            Products
                         </MenuButton>
                         <MenuList>
-                            <MenuItem onClick={()=>getData("men")}>Mens</MenuItem>
-                            <MenuItem onClick={()=>getData("women")}>Womens</MenuItem>
-                            <MenuItem onClick={()=>getData("kids")}>Kids</MenuItem>
+                            <MenuItem onClick={() => {
+                                setTogalDash("product")
+                                getData("men")
+                            }}>Mens</MenuItem>
+                            <MenuItem onClick={() => {
+                                setTogalDash("product")
+                                getData("women")
+                            }}>Womens</MenuItem>
+                            <MenuItem onClick={() => {
+                                setTogalDash("product")
+                                getData("kids")
+                            }}>Kids</MenuItem>
                         </MenuList>
                     </Menu></li>
                     <li><BookmarkBorderIcon className='icon' /><span>Orders</span></li>
@@ -58,8 +75,8 @@ const AdminSlider = ({ getData,setTheme}) => {
                 </ul>
             </div>
             <div className="bottom">
-                <div onClick={()=>setTheme(false)}  className="colorOption"></div>
-                <div onClick={()=>setTheme(true)} className="colorOption"></div>
+                <div onClick={() => setTheme(false)} className="colorOption"></div>
+                <div onClick={() => setTheme(true)} className="colorOption"></div>
             </div>
         </div>
     )

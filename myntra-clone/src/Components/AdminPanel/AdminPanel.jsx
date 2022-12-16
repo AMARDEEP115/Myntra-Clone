@@ -11,6 +11,7 @@ const AdminPanel = () => {
     const [theme, setTheme] = useState(false)
     const [isLoading, setLoading] = useState(false)
     const [data, setData] = useState(initalData)
+    const [togalDash,setTogalDash]=useState("dash")
     const getData = (parem) => {
         setLoading(true)
         axios.get(`https://scary-fly-gilet.cyclic.app/${parem}`).then((r) => {
@@ -19,12 +20,12 @@ const AdminPanel = () => {
         })
     }
     return (
-        <div className='home'>
-            <AdminSlider getData={getData} setData={setData} theme={theme} setTheme={setTheme} />
+        <div className={!theme?"home":"homeDark"}>
+            <AdminSlider getData={getData} setData={setData} theme={theme} setTheme={setTheme} setTogalDash={setTogalDash} />
             <div className="homeContainer">
 
                 <AdminNav theme={theme} setTheme={setTheme} />
-                <Dashboard theme={theme} data={data} isLoading={isLoading} />
+                <Dashboard theme={theme} data={data} isLoading={isLoading}  togalDash={togalDash}/>
 
             </div>
         </div>
