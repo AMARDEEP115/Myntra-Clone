@@ -63,17 +63,18 @@ const AdminNav = ({ theme, setTheme }) => {
                                 className='icon'
                             />
                             <MenuList>
-                                <MenuItem command='⌘T'>
-                                    New Tab
+                                <MenuItem >
+                                   Add New Product
                                 </MenuItem>
-                                <MenuItem command='⌘N'>
-                                    New Window
+                                <MenuItem >
+                                   Add New User
                                 </MenuItem>
-                                <MenuItem command='⌘⇧N'>
-                                    Open Closed Tab
+                                <MenuItem >
+                                    Notification
                                 </MenuItem>
-                                <MenuItem command='⌘O'>
-                                    Open File...
+                                <MenuItem >
+                                System Information
+                                   
                                 </MenuItem>
                             </MenuList>
                         </Menu>

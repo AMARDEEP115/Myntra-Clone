@@ -1,6 +1,6 @@
 import React from 'react'
 import {  Button, ButtonGroup, CardFooter, Divider, Text, Heading, Stack, Image, CardBody, Card } from '@chakra-ui/react'
-import Modify from './Modify'
+import ModifyProduct from './ModifyProduct'
 
 const ProductCard = ({el,theme}) => {
 
@@ -28,7 +28,7 @@ const ProductCard = ({el,theme}) => {
             </CardBody>
             <CardFooter>
                 <ButtonGroup spacing='35' ml={10}>
-                <Modify el={el}/>
+                <ModifyProduct el={el}/>
                     <Button variant='solid' colorScheme='blue'>
                         Remove
                     </Button>

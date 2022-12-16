@@ -8,7 +8,7 @@ import {
     ModalCloseButton,
     Text, Button, useDisclosure, Input, Stack
 } from '@chakra-ui/react'
-function Modify({el}) {
+function ModifyUser({ el }) {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
 
@@ -24,26 +24,30 @@ function Modify({el}) {
                     <ModalBody>
                         <Stack>
                             <Text>Title</Text>
-                            <Input value={el.title} />
+                            <Input value={el.name} />
                             <Text>Categorie</Text>
-                            <Input  value={el.categories} />
+                            <Input value={el.email} />
                             <Text>Description</Text>
-                            <Input   value={el.description} />
-                            <Text>Price</Text>
-                            <Input  value={el.price}/>
+                            <Input value={el.number} />
+                            <Text>Status</Text>
+                            <Input />
                         </Stack>
 
                     </ModalBody>
 
                     <ModalFooter>
                         <Button variant='ghost' colorScheme='blue' mr={3} onClick={onClose}>Close</Button>
-                        <Button colorScheme='blue' >
+                        {el.admin && <Button colorScheme='blue'  >
                             Confirm Change
-                        </Button>
+                        </Button>}
+
+                        {!el.admin && <Button colorScheme='blue'   >
+                            Confirm Change
+                        </Button>}
                     </ModalFooter>
                 </ModalContent>
             </Modal>
         </>
     )
 }
-export default Modify
+export default ModifyUser
