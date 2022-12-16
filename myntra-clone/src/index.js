@@ -7,7 +7,6 @@ import {BrowserRouter} from "react-router-dom";
 import { Provider } from 'react-redux';
 import { store } from './Redux/store';
 import { ChakraProvider } from '@chakra-ui/react';
-import { StyledEngineProvider } from '@mui/material/styles';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -15,10 +14,8 @@ root.render(
   <BrowserRouter>
   <ChakraProvider>
     <Provider store={store}>
-    <StyledEngineProvider injectFirst>
 
       <App />
-      </StyledEngineProvider>
 
     </Provider>
     </ChakraProvider>

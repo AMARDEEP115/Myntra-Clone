@@ -24,7 +24,7 @@ const getDataError = () => {
 const getData = () => (dispatch) => {
   dispatch(getDataRequest());
   return axios
-    .get(`http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/tasks`)
+    .get(`https://scary-fly-gilet.cyclic.app/${parem}`)
     .then((r) => {
       dispatch(getDataSucess(r.data));
     })

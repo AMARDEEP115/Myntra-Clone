@@ -1,8 +1,7 @@
 import { Container, Flex, Grid, Heading, InputRightElement, Alert, Image, InputGroup, Input, Text, Button, GridItem } from '@chakra-ui/react'
 import axios from 'axios'
 import React, { useState } from 'react'
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
+
 
 const initialState = {
     name: "",
@@ -100,12 +99,7 @@ const Signup = () => {
                 </Grid>
 
             </Container>
-            <Stack spacing={2}>
-                <Pagination count={10} />
-                <Pagination count={10} color="primary" />
-                <Pagination count={10} color="secondary" />
-                <Pagination count={10} disabled />
-            </Stack>
+           
         </Grid>
 
 
