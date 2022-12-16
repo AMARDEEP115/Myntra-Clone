@@ -14,7 +14,7 @@ const Dashboard = ({ data, isLoading, theme, togalDash }) => {
     }
     if (togalDash === "dash") {
         return (
-            <Grid display="grid" gridTemplateColumns="1fr 1fr 1fr 1fr" gap="10px" p="0px" className='dashContainer'>
+            <Grid display="grid" gridTemplateColumns="1fr 1fr 1fr 1fr" gap="10px" p="0px" className='dashContainer' borderTop=".1px solid black">
                 {
                     data.map(el => {
                         return (
@@ -23,15 +23,12 @@ const Dashboard = ({ data, isLoading, theme, togalDash }) => {
                     })
                 }
             </Grid>
-
-
-
         )
     }
 
     if (togalDash === "product") {
         return (
-            <Grid display="grid" gridTemplateColumns="1fr 1fr 1fr 1fr" gap="10px" p="0px" className='dashContainer'>
+            <Grid display="grid" gridTemplateColumns="1fr 1fr 1fr 1fr" gap="10px" p="0px" className='dashContainer' borderTop=".1px solid black">
                 {
                     data.map(el => {
                         return (
@@ -39,10 +36,6 @@ const Dashboard = ({ data, isLoading, theme, togalDash }) => {
                         )
                     })
                 }
-
-
-
-
             </Grid>
 
 
@@ -53,7 +46,7 @@ const Dashboard = ({ data, isLoading, theme, togalDash }) => {
 
     if (togalDash === "user") {
         return (
-            <Grid display="grid" gridTemplateColumns="1fr 1fr 1fr 1fr" gap="10px" p="0px" className='dashContainer'>
+            <Grid display="grid" gridTemplateColumns="1fr 1fr 1fr 1fr" gap="10px" p="0px" className='dashContainer' borderTop=".1px solid #555">
                 {
                     data.map(el => {
                         return (
@@ -61,11 +54,7 @@ const Dashboard = ({ data, isLoading, theme, togalDash }) => {
 
                         )
                     })
-                }
-
-
-
-
+                }   
             </Grid>
 
 

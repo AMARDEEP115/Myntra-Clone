@@ -14,8 +14,7 @@ function MainRoutes(){
         <Route path="/loginuser" element={<LoginUserPass/>} />
         <Route path="/signup" element={<Signup/>} />
         <Route path="/admin" element={<AdminPanel/>} />
-        <Route path="/addnewproduct" element={<AddNewProduct/>} />
-        <Route path="/addnewuser" element={<AddUser/>} />
+        
     </Routes>
 }
 

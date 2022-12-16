@@ -10,6 +10,7 @@ import GamesIcon from '@mui/icons-material/Games';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import "./AdminNav.scss"
 import { MenuButton, MenuItem, MenuList, Menu, IconButton, InputGroup ,InputRightElement,Input} from '@chakra-ui/react';
+import AddUser from '../AddNewProduct/AddUser';
 
 
 
@@ -64,7 +65,7 @@ const AdminNav = ({ theme, setTheme }) => {
                             />
                             <MenuList>
                                 <MenuItem >
-                                   Add New Product
+                                   <AddUser/>
                                 </MenuItem>
                                 <MenuItem >
                                    Add New User

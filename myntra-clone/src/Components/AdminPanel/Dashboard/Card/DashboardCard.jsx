@@ -4,7 +4,7 @@ import { Divider, Text, Heading, Stack, Image, CardBody, Card, } from '@chakra-u
 
 const DashboardCard = ({ el, theme }) => {
     return (
-        <Card maxW='sm' boxShadow="lg" color={theme && "white"}>
+        <Card maxW='sm' boxShadow="lg" color={theme && "white"} p={5}>
             <CardBody>
                 <Image
                     src={el.images.image1}

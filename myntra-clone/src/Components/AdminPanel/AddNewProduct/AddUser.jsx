@@ -1,31 +1,54 @@
-import { Container, Heading, Stack, Grid,Text} from '@chakra-ui/layout'
-import React, { useState } from 'react'
 import {
-   
-    Input,
-    Button
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    Text, Button, useDisclosure, Input, Stack, Select
 } from '@chakra-ui/react'
+function AddUser() {
+    const { isOpen, onOpen, onClose } = useDisclosure()
 
-const AddUser = () => {
 
     return (
-        <Container h="100vh">
-            <Grid p={10} display="grid" boxShadow="lg" alignItems="center" justifyContent="center"  >
-                <Stack textAlign="left">
-                    <Heading>Add New User</Heading>
-                    <Text>Title</Text>
-                            <Input  />
-                            <Text>Categorie</Text>
-                            <Input  />
-                            <Text>Description</Text>
+        <>
+            <Text onClick={onOpen} >Add New User</Text>
+
+            <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalHeader textAlign="center">Add User</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>
+                        <Stack>
+                            <Text>Name</Text>
+                            <Input />
+                            <Text>Email</Text>
+                            <Input />
+                            <Text>Number</Text>
                             <Input  />
                             <Text>Status</Text>
-                            <Input />
-                    <Button>ADD User</Button>
-                </Stack>
-            </Grid>
-        </Container>
+                            <Select placeholder='Status'>
+                                <option value='option2'>User</option>
+                                <option value='option3'>Employee</option>
+                            </Select>
+                        </Stack>
+
+                    </ModalBody>
+
+                    <ModalFooter>
+                        <Button variant='ghost' colorScheme='blue' mr={3} onClick={onClose}>Close</Button>
+                 <Button colorScheme='blue'  >
+                            Confirm Change
+                        </Button>
+
+                        
+                    </ModalFooter>
+                </ModalContent>
+            </Modal>
+        </>
     )
 }
-
 export default AddUser
