@@ -1,20 +1,59 @@
-import { Container, Flex, Grid, Heading, InputRightElement, PinInputField, PinInput, Alert, Image, InputGroup, InputLeftAddon, Input, Text, Button, GridItem } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import { Container, Flex, Grid, Heading, InputRightElement, Alert, Image, InputGroup,  Input, Text, Button, GridItem } from '@chakra-ui/react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+const initialState = {
+    email: "",
+    password: "",
+
+}
 
 const LoginUserPass = () => {
+    const [user, setUser] = useState(initialState)
+    const [userData,setUserData]=useState([])
     const [otpAlert, setOtpAlert] = useState(false)
-    const [togalOtp, setTogalOtp] = useState(true)
-    const [show, setShow] = React.useState(false)
+    const [show, setShow] = useState(false)
     const handleClick = () => setShow(!show)
-    console.log('otpAlert:', otpAlert)
 
-    const submitOTP = () => {
-        setOtpAlert(true);
-        setInterval(() => {
-            setOtpAlert(false)
-        }, 3000)
-        setTogalOtp(false)
+    const [authen, setAuthen] = useState(false)
+    const navigate = useNavigate()
+    const getData = () => {
+        axios.get(`https://scary-fly-gilet.cyclic.app/user`).then((res) => {
+            setUserData(res.data)
+        })
     }
+    useEffect(() => {
+        getData()
+    }, [])
+    let handelChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        const val = type === "checkbox" ? checked : value;
+
+        setUser({ ...user, [name]: val });
+    };
+
+    const auth = () => {
+
+        userData.forEach((el) => {
+            if (user.email === el.email && user.password===el.password) {
+
+                setAuthen(prev => !prev)
+                localStorage.setItem("user",JSON.stringify(el))
+
+            }
+        })
+
+
+    }
+    const submitOTP = () => {
+        auth()
+
+        
+
+    }
+    console.log('authen:', authen)
+
+
 
 
     return (
@@ -28,16 +67,14 @@ const LoginUserPass = () => {
                     </Grid>
                     <Grid gap={5} p={8} display="grid" justifyContent="center">
 
-                        <Grid display="grid" alignItems="baseline" textAlign="left" gap={2} ><Heading size="md">Login or Signup</Heading>
-                            {
-                                togalOtp ? <Text>Enter Your Mobile Number</Text> : <Text>Enter Your OTP</Text>
-                            }
-
+                        <Grid display="grid" alignItems="baseline" textAlign="left" gap={2} >
+                            <Heading size="md">Login</Heading>
+                            <Text>Enter Your Email and Password</Text>
                         </Grid>
                         <Grid>
 
                             <GridItem>
-                                <Input variant='outline' placeholder='Enter Your Email' />
+                                <Input variant='outline' placeholder='Enter Your Email' value={user.email} onChange={handelChange} name="email" />
                             </GridItem>
                             <GridItem>
                                 <InputGroup size='md'>
@@ -45,6 +82,7 @@ const LoginUserPass = () => {
                                         pr='4.5rem'
                                         type={show ? 'text' : 'password'}
                                         placeholder='Enter Your  Password'
+                                        value={user.password} onChange={handelChange} name="password"
                                     />
                                     <InputRightElement width='4.5rem'>
                                         <Button h='1.75rem' size='sm' onClick={handleClick}>
@@ -64,7 +102,7 @@ const LoginUserPass = () => {
                                 <b>   CONTINUE</b>
                             </Button>
                         </Flex>
-                        <Flex>Have trouble logging in ?Get help</Flex>
+                        <Flex color="#FF3F6C"> <Link to="/login" >Want's To Login With Mobile ?</Link></Flex>
 
                     </Grid>
                 </Grid>

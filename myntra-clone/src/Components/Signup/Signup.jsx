@@ -1,26 +1,48 @@
-import { Container, Flex, Grid, Heading, InputRightElement, PinInputField, PinInput, Alert, Image, InputGroup, InputLeftAddon, Input, Text, Button, GridItem } from '@chakra-ui/react'
+import { Container, Flex, Grid, Heading, InputRightElement, Alert, Image, InputGroup, Input, Text, Button, GridItem } from '@chakra-ui/react'
+import axios from 'axios'
 import React, { useState } from 'react'
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
+
+const initialState = {
+    name: "",
+    email: "",
+    password: "",
+    number: "",
+    user: true,
+    employee: false,
+    admin: false,
+
+}
 
 const Signup = () => {
-    const [otpAlert, setOtpAlert] = useState(false)
-    const [togalOtp, setTogalOtp] = useState(true)
+    const [user, setUser] = useState(initialState)
+
+
     const [show, setShow] = React.useState(false)
     const handleClick = () => setShow(!show)
-    console.log('otpAlert:', otpAlert)
+    let handelChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        const val = type === "checkbox" ? checked : value;
 
-    const submitOTP = () => {
-        setOtpAlert(true);
-        setInterval(() => {
-            setOtpAlert(false)
-        }, 3000)
-        setTogalOtp(false)
+        setUser({ ...user, [name]: val });
+    };
+
+    const handelSubmit = (e) => {
+        e.preventDefault();
+        axios.post('https://scary-fly-gilet.cyclic.app/user', user).then((r) => {
+            console.log('r:', r)
+
+        })
+        setUser(initialState)
+
     }
 
 
     return (
 
         <Grid bg="#FFF5F5" w="100%" h="100vh" display="grid" justifyContent="center" alignItems="center">
-            {otpAlert && <Alert status='success'> Data uploaded to the server. Fire on!  </Alert>}
+            {/* {otpAlert && <Alert status='success'> Data uploaded to the server. Fire on!  </Alert>} */}
             <Container  >
                 <Grid w="400px" bg="#FFF" boxShadow="xl">
                     <Grid>
@@ -28,19 +50,21 @@ const Signup = () => {
                     </Grid>
                     <Grid gap={5} p={8} display="grid" justifyContent="center">
 
-                        <Grid display="grid" alignItems="baseline" textAlign="left" gap={2} ><Heading size="md">Login or Signup</Heading>
-                            {
-                                togalOtp ? <Text>Enter Your Mobile Number</Text> : <Text>Enter Your OTP</Text>
-                            }
+                        <Grid display="grid" alignItems="baseline" textAlign="center" gap={2} ><Heading size="md">SIGNUP </Heading>
+
+
 
                         </Grid>
                         <Grid gap={3}>
                             <GridItem>
-                                <Input variant='outline' borderRadius="0px" placeholder='Enter Your Full Name' />
+                                <Input variant='outline' borderRadius="0px" name='name' onChange={handelChange} value={user.name} placeholder='Enter Your Full Name' />
                             </GridItem>
 
                             <GridItem>
-                                <Input variant='outline' borderRadius="0px" placeholder='Enter Your Email' />
+                                <Input variant='outline' name='email' borderRadius="0px" onChange={handelChange} value={user.email} placeholder='Enter Your Email' />
+                            </GridItem>
+                            <GridItem>
+                                <Input variant='outline' name='number' borderRadius="0px" onChange={handelChange} value={user.number} placeholder='Enter Your Number' />
                             </GridItem>
                             <GridItem>
                                 <InputGroup size='md'>
@@ -49,6 +73,8 @@ const Signup = () => {
                                         type={show ? 'text' : 'password'}
                                         placeholder='Enter Your  Password'
                                         borderRadius="0px"
+                                        onChange={handelChange} value={user.password}
+                                        name='password'
                                     />
                                     <InputRightElement width='4.5rem'>
                                         <Button h='1.75rem' size='sm' onClick={handleClick}>
@@ -64,7 +90,7 @@ const Signup = () => {
 
                         </Flex>
                         <Flex>
-                            <Button bg="#FF3F6C" w="100%" border="none" color="#FFF" h={50} onClick={submitOTP}>
+                            <Button bg="#FF3F6C" w="100%" border="none" color="#FFF" h={50} onClick={handelSubmit}>
                                 <b>   CONTINUE</b>
                             </Button>
                         </Flex>
@@ -74,7 +100,16 @@ const Signup = () => {
                 </Grid>
 
             </Container>
+            <Stack spacing={2}>
+                <Pagination count={10} />
+                <Pagination count={10} color="primary" />
+                <Pagination count={10} color="secondary" />
+                <Pagination count={10} disabled />
+            </Stack>
         </Grid>
+
+
+
     )
 }
 

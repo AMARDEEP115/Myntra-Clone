@@ -12,9 +12,10 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import LogoutIcon from '@mui/icons-material/Logout';
 import "./AdminSlider.scss"
+import { MenuButton,MenuItem,MenuList,Button,Menu } from '@chakra-ui/react';
 
 
-const AdminSlider = () => {
+const AdminSlider = ({ getData,setTheme}) => {
     return (
         <div className='sidebar'>
             <div className="top">
@@ -28,28 +29,37 @@ const AdminSlider = () => {
                     <li><DashboardIcon className='icon' /><span>DashBoard</span></li>
                     <p className="title">LISTS</p>
 
-                    <li><PersonIcon className='icon'/><span>Users</span></li>
-                    <li><ProductionQuantityLimitsIcon className='icon'/><span>Products</span></li>
-                    <li><BookmarkBorderIcon className='icon'/><span>Orders</span></li>
+                    <li onClick={() => getData("user")}><PersonIcon className='icon' /><span>Users</span></li>
+                    <li> <ProductionQuantityLimitsIcon  className='icon' /><Menu>
+                        <MenuButton  >
+                           Products
+                        </MenuButton>
+                        <MenuList>
+                            <MenuItem onClick={()=>getData("men")}>Mens</MenuItem>
+                            <MenuItem onClick={()=>getData("women")}>Womens</MenuItem>
+                            <MenuItem onClick={()=>getData("kids")}>Kids</MenuItem>
+                        </MenuList>
+                    </Menu></li>
+                    <li><BookmarkBorderIcon className='icon' /><span>Orders</span></li>
                     <li><DeliveryDiningIcon className='icon' /><span>Delevry</span></li>
                     <p className="title">USEFUL</p>
 
-                    <li><QueryStatsIcon className='icon'/><span>Stats</span></li>
-                    <li><NotificationImportantIcon className='icon'/><span>Notification</span></li>
+                    <li><QueryStatsIcon className='icon' /><span>Stats</span></li>
+                    <li><NotificationImportantIcon className='icon' /><span>Notification</span></li>
                     <p className="title">SERVICES</p>
 
-                    <li><HealthAndSafetyIcon className='icon'/><span>System Health</span></li>
-                    <li><PsychologyIcon className='icon'/><span>Logs </span></li>
-                    <li><SettingsIcon className='icon'/><span>Settings</span></li>
+                    <li><HealthAndSafetyIcon className='icon' /><span>System Health</span></li>
+                    <li><PsychologyIcon className='icon' /><span>Logs </span></li>
+                    <li><SettingsIcon className='icon' /><span>Settings</span></li>
                     <p className="title">USER</p>
 
                     <li><PersonOutlineIcon className='icon' /><span>Profile</span></li>
-                    <li><LogoutIcon className='icon'/><span>Logout</span></li>
+                    <li><LogoutIcon className='icon' /><span>Logout</span></li>
                 </ul>
             </div>
             <div className="bottom">
-                <div className="colorOption"></div>
-                <div className="colorOption"></div>
+                <div onClick={()=>setTheme(false)}  className="colorOption"></div>
+                <div onClick={()=>setTheme(true)} className="colorOption"></div>
             </div>
         </div>
     )
