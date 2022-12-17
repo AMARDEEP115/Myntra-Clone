@@ -1,7 +1,7 @@
 //CategoriesToBag
 import React from 'react'
 
-function CategoriesToBag(props) {
+function ShopBycategory(props) {
     const { url, id } = props
     return (
         <>
@@ -13,4 +13,4 @@ function CategoriesToBag(props) {
     )
 }
 
-export default CategoriesToBag
+export default ShopBycategory;
