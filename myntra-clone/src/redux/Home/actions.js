@@ -2,7 +2,7 @@ export const DEALSOFTHEDAY = "DEALSOFTHEDAY";
 export const BESTOFMYNTRA = "BESTOFMYNTRA";
 export const TOPPICKS = "TOPPICKS"
 export const CATEGORIESTOBAG = "CATEGORIESTOBAG"
-export const GIFTINGCARDS = "GIFTINGCARDS"
+export const ShopByCategories = "ShopByCategories"
 export const DEALSOFLATESTARIVAL = "DEALSOFLATESTARIVAL"
 export const NEWINTOPBRANDS = "NEWINTOPBRANDS"
 export const TOPNININFLUNCEREXCLUSIVESTYLES = "TOPNININFLUNCEREXCLUSIVESTYLES"
@@ -37,7 +37,7 @@ export const getCategoriesData = (payload) => ({
     type: CATEGORIESTOBAG,
     payload
 })
-export const getGiftingCards = (payload) => ({
-    type: GIFTINGCARDS,
+export const ShopBycategory = (payload) => ({
+    type: ShopByCategories,
     payload
 })

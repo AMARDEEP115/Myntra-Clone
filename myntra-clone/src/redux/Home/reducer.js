@@ -1,10 +1,10 @@
-import {BESTOFMYNTRA, CATEGORIESTOBAG, DEALSOFLATESTARIVAL, DEALSOFTHEDAY, GIFTINGCARDS, NEWINTOPBRANDS, TOPNININFLUNCEREXCLUSIVESTYLES, TOPPICKS} from "./actions"
+import {BESTOFMYNTRA, CATEGORIESTOBAG, DEALSOFLATESTARIVAL, DEALSOFTHEDAY,ShopByCategories, NEWINTOPBRANDS, TOPNININFLUNCEREXCLUSIVESTYLES, TOPPICKS} from "./actions"
 const initState = {
     dealsOftheDay : [] ,
     bestOfMyntra:[],
     topPicks:[],
     gategoriesToBag:[],
-    giftingCards:[],
+    ShopByCategories:[],
     dealsoflatestarival:[],
     newintopbrands:[],
     topinfluncerseclusive:[]
@@ -38,10 +38,10 @@ export const Homereducer = (state = initState , action ) =>{
                 gategoriesToBag:action.payload
             }
         }
-        case GIFTINGCARDS :{
+        case ShopByCategories :{
             return {
                 ...state,
-                giftingCards:action.payload
+                ShopBycategory:action.payload
             }
         }
         case  DEALSOFLATESTARIVAL:{
