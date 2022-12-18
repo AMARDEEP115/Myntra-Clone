@@ -1,48 +1,52 @@
 import { Container, Flex, Grid, Heading, HStack, PinInputField, PinInput, Alert, Image, InputGroup, InputLeftAddon, Input, Text, Button } from '@chakra-ui/react'
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
+import { getProductAdmin } from '../../Redux/Adminreducer/action'
 
 const Login = () => {
     const [otpAlert, setOtpAlert] = useState(false)
     const [togalOtp, setTogalOtp] = useState(true)
     const [Mobilenumber, setNumber] = useState("")
     const [otp, setOtp] = useState("")
+    console.log('otp:', otp)
     const [authen, setAuthen] = useState(false)
-    console.log('authen:', authen)
     const [user, setuser] = useState([])
     const navigate = useNavigate()
-    const getData = () => {
-        axios.get(`https://scary-fly-gilet.cyclic.app/user`).then((res) => {
-            setuser(res.data)
+    const dispatch = useDispatch()
 
-        }).catch((e) => {
-            console.log('e:', e)
-        })
-    }
     useEffect(() => {
-        getData()
-    }, [])
+        dispatch(getProductAdmin("user")).then((r) => {
+            setuser(r.data)
+        })
+
+    }, [dispatch])
 
     const auth = () => {
-        console.log('Mobilenumber:', Mobilenumber)
 
-        user.forEach((el) => {
-            if (+Mobilenumber === el.number) {
+        if(otp===1234){
+            console.log("hii")
+        }
 
-                setAuthen(prev => !prev)
-                localStorage.setItem("user",JSON.stringify(el))
+        // user.forEach((el) => {
+        //     if (+Mobilenumber === el.number) {
+
+        //         setAuthen(prev => !prev)
+        //         localStorage.setItem("user", JSON.stringify(el))
+        //         if (el.status === "user") {
+        //             navigate("/")
+        //         }
+        //         else {
+        //             navigate("/admin")
+        //         }
 
 
-            }
-        })
+        //     }
+        // })
 
 
     }
-    if (authen) {
-        console.log('authen:', authen)
-
-    }
+   
 
     const submitOTP = () => {
 
@@ -51,7 +55,7 @@ const Login = () => {
             setOtpAlert(false)
         }, 3000)
         setTogalOtp(false)
-        auth()
+        
 
 
     }
@@ -104,7 +108,7 @@ const Login = () => {
                             {
                                 togalOtp ? <Button bg="#FF3F6C" w="100%" border="none" color="#FFF" h={50} onClick={submitOTP}>
                                     <b>CONTINUE</b>
-                                </Button> : <Button bg="#FF3F6C" w="100%" border="none" color="#FFF" h={50}>
+                                </Button> : <Button bg="#FF3F6C" w="100%" border="none" color="#FFF" h={50} onClick={auth}>
                                     <b>LOGIN</b>
                                 </Button>
                             }

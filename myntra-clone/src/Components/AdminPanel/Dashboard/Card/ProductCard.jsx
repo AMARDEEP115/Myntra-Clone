@@ -1,5 +1,5 @@
 import React from 'react'
-import {   ButtonGroup, CardFooter, Divider, Text, Heading, Stack, Image, CardBody, Card } from '@chakra-ui/react'
+import {   ButtonGroup,  Text, Heading, Stack, Image, CardBody, Card } from '@chakra-ui/react'
 import ModifyProduct from './ModifyProduct'
 import RemoveProduct from './Buttons/RemoveProduct'
 
