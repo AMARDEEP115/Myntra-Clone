@@ -8,6 +8,7 @@ import React from 'react';
 import { SlMagnifier } from "react-icons/sl";
 import { SlUser } from "react-icons/sl";
 import styles from "./Navbar.module.css";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [q, setQ] = useState("")
@@ -31,15 +32,15 @@ export default function Navbar() {
 
       <div>
         <div>
-          <img src={"https://doubtful-bell-2631.netlify.app/static/media/Myntra.64e73cf807ba3072649f.png"}  width="40px" height={"45px"} alt="" />
+          <Link to="/"><img src={"https://doubtful-bell-2631.netlify.app/static/media/Myntra.64e73cf807ba3072649f.png"}  width="40px" height={"45px"} alt="" /></Link>
         </div>
         <div>
           <div  className={styles.navpadding}>
 
-            MEN
+            <Link to="/mens">MEN</Link>
           </div>
           <div  className={styles.navpadding}>
-            WOMEN
+          <Link to="/womens">WOMEN</Link>
           </div>
           <div  className={styles.navpadding}>
             KIDS
@@ -108,11 +109,11 @@ export default function Navbar() {
 
           <div style={{ cursor: "pointer" }} className={styles.navpadding} >
           <IoMdHeartEmpty/>
-            <p>Wishlist</p>
+            <p><Link to="/wishlist">Wishlist</Link></p>
           </div>
           <div style={{ cursor: "pointer" }} className={styles.navpadding}>
                 <HiOutlineShoppingBag/>
-            <p>Bag</p>
+            <p><Link to="/cart">Bag</Link></p>
           </div>
         </div>
 
