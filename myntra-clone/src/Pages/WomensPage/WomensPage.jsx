@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getWomensData } from "../../REDUX/action";
 import Pagination from "../../Components/WomensPage/Pagination";
 import SortData from "../../Components/WomensPage/SortData";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
 const WomensPage = () => {
   // https://scary-fly-gilet.cyclic.app/women
   const location = useLocation();
@@ -58,9 +58,22 @@ const WomensPage = () => {
         </div>
         <div className="products ">
           {womens.length > 0 &&
+            womens.map((data, index) => {
+              return (
+                <div key={index} >
+                  <Link
+                    to={`/womens/${data.id}`}
+                   
+                  >
+                    <WomensCard key={index} womensData={data} />
+                  </Link>
+                </div>
+              );
+            })}
+          {/* {womens.length > 0 &&
             womens.map((data, index) => (
               <WomensCard key={index} womensData={data} />
-            ))}
+            ))} */}
         </div>
       </div>
       <div>

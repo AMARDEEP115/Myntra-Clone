@@ -5,7 +5,7 @@ import {
   getCategoriesData,
   getDealsOftheData,
   getTopPicksData,
-} from "../../redux/action";
+} from "../../REDUX/action";
 import BestOfMyntra from "./BestOfMyntra";
 import CategoriesToBag from "./ShopByCategories";
 import DealOftheDayCard from "./DealOftheDayCard";
@@ -21,14 +21,12 @@ const divStyle = {
   margin: "-10px 20px 0px -250px",
   maxHeight: "10em",
   fontWeight: "500",
- 
 };
 function InnerContent() {
   const dealsOftheDay = useSelector((state) => state.home.dealsOftheDay);
   const bestofMyntra = useSelector((state) => state.home.bestOfMyntra);
   const topPicks = useSelector((state) => state.home.topPicks);
   const categoriesToBag = useSelector((state) => state.home.gategoriesToBag);
-
 
   // console.log("data", dealsOftheDay);
   const dispatch = useDispatch();
@@ -56,14 +54,16 @@ function InnerContent() {
       <div>
         <div style={divStyle}>
           {" "}
-      <h1 style={{marginLeft:"600px" , fontSize:"50px"}}>DEALS ON TOP BRANDS</h1>
+          <h1 style={{ marginLeft: "600px", fontSize: "50px" }}>
+            DEALS ON TOP BRANDS
+          </h1>
         </div>
         <div
           style={{
             display: "grid",
             justifyContent: "space-between",
             gridTemplateColumns: "repeat(10, auto) ",
-            cursor: "pointer"
+            cursor: "pointer",
           }}
         >
           {dealsOftheDay.map((e) => (
@@ -72,14 +72,16 @@ function InnerContent() {
         </div>
         <div style={divStyle}>
           {" "}
-          <h1 style={{marginLeft:"650px" , fontSize:"50px"}}>SUPER SAVING ZONE</h1>
+          <h1 style={{ marginLeft: "650px", fontSize: "50px" }}>
+            SUPER SAVING ZONE
+          </h1>
         </div>
         <div
           style={{
             display: "grid",
             justifyContent: "space-between",
             gridTemplateColumns: "repeat(10, auto) ",
-            cursor: "pointer"
+            cursor: "pointer",
           }}
         >
           {bestofMyntra.map((e) => (
@@ -88,14 +90,16 @@ function InnerContent() {
         </div>
         <div style={divStyle}>
           {" "}
-          <h1 style={{marginLeft:"300px" , fontSize:"50px"}}>SPRING SUMMER 2022- FIRST ON MYNTRA</h1>
+          <h1 style={{ marginLeft: "300px", fontSize: "50px" }}>
+            SPRING SUMMER 2022- FIRST ON MYNTRA
+          </h1>
         </div>
         <div
           style={{
             display: "grid",
             justifyContent: "space-between",
             gridTemplateColumns: "repeat(8, auto) ",
-            cursor: "pointer"
+            cursor: "pointer",
           }}
         >
           {topPicks.map((e) => (
@@ -104,7 +108,9 @@ function InnerContent() {
         </div>
         <div style={divStyle}>
           {" "}
-               <h1 style={{marginLeft:"600px" , fontSize:"50px"}}>CATEGORIES TO BAG</h1>
+          <h1 style={{ marginLeft: "600px", fontSize: "50px" }}>
+            CATEGORIES TO BAG
+          </h1>
         </div>
         <div
           style={{
@@ -112,13 +118,13 @@ function InnerContent() {
             justifyContent: "space-around",
             gridTemplateColumns: "repeat(8, auto) ",
             rowGap: "0px",
-            cursor: "pointer"
+            cursor: "pointer",
           }}
         >
           {categoriesToBag.map((e) => (
             <CategoriesToBag {...e} key={e.id} />
           ))}
-        </div>       
+        </div>
       </div>
     </div>
   );
