@@ -6,13 +6,12 @@ import {
     ModalFooter,
     ModalBody,
     ModalCloseButton,
-    Text, Button, useDisclosure, Input, Stack, Select, Textarea
+    Text, Button, useDisclosure, Input, Stack, Select, Textarea, useToast
 } from '@chakra-ui/react'
-const initialProduct={
-    
-}
+
 function AddNewProduct() {
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const toast =useToast()
 
 
     return (
@@ -47,8 +46,17 @@ function AddNewProduct() {
 
                     <ModalFooter>
                         <Button variant='ghost' colorScheme='blue' mr={3} onClick={onClose}>Close</Button>
-                 <Button colorScheme='blue'  >
-                            Confirm Change
+                 <Button colorScheme='blue' onClick={()=>{
+                    onClose()
+                    toast({
+                        title: 'Product Added',
+                        description: "We've created your Product for you.",
+                        status: 'success',
+                        duration: 3000,
+                        isClosable: true,
+                    })
+                 }} >
+                            Add Product
                         </Button>
 
                         

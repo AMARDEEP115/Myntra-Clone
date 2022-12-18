@@ -15,6 +15,16 @@ import "./AdminSlider.scss"
 import { MenuButton, MenuItem, MenuList, Button, Menu } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import { getProductAdmin } from '../../../Redux/Adminreducer/action';
+import NotificationCard from '../Dashboard/Card/NotificationCard';
+import ProfileCard from '../Dashboard/Card/ProfileCard';
+const initialuser={
+    id: null,
+    name: "",
+    password: "",
+    email: "",
+    number: null,
+    status: ""
+}
 
 
 const AdminSlider = ({ getData, setTheme, setData, setTogalDash }) => {
@@ -67,11 +77,11 @@ const AdminSlider = ({ getData, setTheme, setData, setTogalDash }) => {
                         setTogalDash("product")}} ><BookmarkBorderIcon className='icon' /><span>Orders</span></li>
                     <li onClick={() => {
                        dispatch(getProductAdmin("delivery"))
-                        setTogalDash("product")}}><DeliveryDiningIcon className='icon'  /><span>Delevry</span></li>
+                        setTogalDash("product")}}><DeliveryDiningIcon className='icon'  /><span>Delivery</span></li>
                     <p className="title">USEFUL</p>
 
                     <li><QueryStatsIcon className='icon' /><span>Stats</span></li>
-                    <li><NotificationImportantIcon className='icon' /><span>Notification</span></li>
+                    <li><NotificationImportantIcon className='icon' /><NotificationCard/></li>
                     <p className="title">SERVICES</p>
 
                     <li><HealthAndSafetyIcon className='icon' /><span>System Health</span></li>
@@ -79,8 +89,10 @@ const AdminSlider = ({ getData, setTheme, setData, setTogalDash }) => {
                     <li><SettingsIcon className='icon' /><span>Settings</span></li>
                     <p className="title">USER</p>
 
-                    <li><PersonOutlineIcon className='icon' /><span>Profile</span></li>
-                    <li><LogoutIcon className='icon' /><span>Logout</span></li>
+                    <li><PersonOutlineIcon className='icon' /><ProfileCard/></li>
+                    <li onClick={()=>{
+                        localStorage.setItem("user",JSON.stringify(initialuser))
+                    }}><LogoutIcon className='icon' /><span>Logout</span></li>
                 </ul>
             </div>
             <div className="bottom">

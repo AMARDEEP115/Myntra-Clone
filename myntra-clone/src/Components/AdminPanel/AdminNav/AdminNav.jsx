@@ -12,6 +12,7 @@ import "./AdminNav.scss"
 import { MenuButton, MenuItem, MenuList, Menu, IconButton, InputGroup ,InputRightElement,Input} from '@chakra-ui/react';
 import AddUser from '../AddNewProduct/AddUser';
 import AddNewProduct from '../AddNewProduct/AddNewProduct';
+import NotificationCard from '../Dashboard/Card/NotificationCard';
 
 
 
@@ -53,7 +54,6 @@ const AdminNav = ({ theme, setTheme }) => {
                     </div>
 
                     <div className="item"> <GamesIcon className='icon' /></div>
-                    <div className="item"> <NotificationImportantIcon className='icon' /></div>
                     <div className="item"> <ChatBubbleIcon className='icon' /></div>
                     <div className="item">
                         <Menu>
@@ -73,7 +73,7 @@ const AdminNav = ({ theme, setTheme }) => {
                                    <AddNewProduct/>
                                 </MenuItem>
                                 <MenuItem >
-                                    Notification
+                                    <NotificationCard/>
                                 </MenuItem>
                                 <MenuItem >
                                 System Information
