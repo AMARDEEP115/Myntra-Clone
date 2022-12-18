@@ -1,12 +1,12 @@
 import React from 'react'
-import { Badge, Grid, Button, ButtonGroup, CardFooter, Divider, Text, Heading, Stack, Image, CardBody, Card, grid } from '@chakra-ui/react'
+import { Badge, ButtonGroup, CardFooter, Divider, Text, Heading, Stack, Image, CardBody, Card } from '@chakra-ui/react'
 import ModifyUser from './ModifyUser'
+import RemoveUserButton from './Buttons/RemoveUserButton'
 
 
 const UserCard = ({ el, theme }) => {
-    console.log('el:', el)
     return (
-        <Card maxW='sm' boxShadow="lg" color={theme && "white"}>
+        <Card maxW='sm' boxShadow="lg" color={theme && "white"} h="60vh">
             <CardBody>
 
                 <Image
@@ -26,25 +26,20 @@ const UserCard = ({ el, theme }) => {
 
                 </Stack>
             </CardBody>
-            {el.user && <Badge colorScheme='green'>User</Badge>}
-            {el.employee && <Badge colorScheme='purple'>Employee</Badge>}
-            {el.admin && <Badge colorScheme='red'>Admin</Badge>}
+            {el.status === "user" && <Badge colorScheme='green'>User</Badge>}
+            {el.status === "employee" && <Badge colorScheme='purple'>Employee</Badge>}
+            {el.status === "admin" && <Badge colorScheme='red'>Admin</Badge>}
             <CardFooter>
-
-            { el.admin &&   <ButtonGroup spacing='35' ml={10}>
-                    <ModifyUser el={el}  />
-                    <Button variant='solid' colorScheme='blue' isDisabled  >
-                        Remove
-                    </Button>
-                </ButtonGroup>}
-
-                
-           {  !el.admin &&      <ButtonGroup spacing='35' ml={10}>
+                <ButtonGroup spacing='35' ml={10}>
                     <ModifyUser el={el} />
-                    <Button variant='solid' colorScheme='blue'   >
-                        Remove
-                    </Button>
-                </ButtonGroup>}
+                    <RemoveUserButton id={el.id} />
+                </ButtonGroup>
+
+
+                {/* {!el.admin && <ButtonGroup spacing='35' ml={10}>
+                    <ModifyUser el={el}  />
+                    <RemoveUserButton />
+                </ButtonGroup>} */}
             </CardFooter>
             <Divider />
 

@@ -1,11 +1,12 @@
 import React from 'react'
 import {  Button, ButtonGroup, CardFooter, Divider, Text, Heading, Stack, Image, CardBody, Card } from '@chakra-ui/react'
 import ModifyProduct from './ModifyProduct'
+import RemoveProduct from './Buttons/RemoveProduct'
 
 const ProductCard = ({el,theme}) => {
 
     return (
-        <Card maxW='sm' boxShadow="lg" color={theme && "white"}>
+        <Card maxW='sm' boxShadow="lg" color={theme && "white"} h="100vh" overflowY="hidden">
             <CardBody>
                 <Image
                     src={el.images.image1}
@@ -18,7 +19,7 @@ const ProductCard = ({el,theme}) => {
                     <Heading size="sm">
                     Categorie: {el.categories}
                     </Heading>
-                    <Text>
+                    <Text h="10vh" overflowY="scroll">
                         {el.description}
                     </Text>
                     <Text color='blue.600' fontSize='2xl'>
@@ -29,9 +30,7 @@ const ProductCard = ({el,theme}) => {
             <CardFooter>
                 <ButtonGroup spacing='35' ml={10}>
                 <ModifyProduct el={el}/>
-                    <Button variant='solid' colorScheme='blue'>
-                        Remove
-                    </Button>
+                    <RemoveProduct id={el.id}/>
                 </ButtonGroup>
             </CardFooter>
             <Divider />

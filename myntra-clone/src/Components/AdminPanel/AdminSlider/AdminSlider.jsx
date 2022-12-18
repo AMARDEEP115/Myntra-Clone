@@ -13,10 +13,13 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import LogoutIcon from '@mui/icons-material/Logout';
 import "./AdminSlider.scss"
 import { MenuButton, MenuItem, MenuList, Button, Menu } from '@chakra-ui/react';
-import initalData from '../InitialData';
+import { useDispatch } from 'react-redux';
+import { getProductAdmin } from '../../../Redux/Adminreducer/action';
 
 
 const AdminSlider = ({ getData, setTheme, setData, setTogalDash }) => {
+    const dispatch=useDispatch()
+
     return (
         <div className='sidebar'>
             <div className="top">
@@ -28,13 +31,13 @@ const AdminSlider = ({ getData, setTheme, setData, setTogalDash }) => {
                 <ul>
                     <p className="title">MAIN</p>
                     <li onClick={() => {
-                        setData(initalData)
+                        dispatch(getProductAdmin("Dashboard"))
                         setTogalDash("dash")
                     }}><DashboardIcon className='icon' /><span>DashBoard</span></li>
                     <p className="title">LISTS</p>
 
                     <li onClick={() => {
-                        getData("user")
+                       dispatch(getProductAdmin("user"))
                         setTogalDash("user")
 
                     }}><PersonIcon className='icon' /><span>Users</span></li>
@@ -45,11 +48,12 @@ const AdminSlider = ({ getData, setTheme, setData, setTogalDash }) => {
                         <MenuList>
                             <MenuItem onClick={() => {
                                 setTogalDash("product")
-                                getData("men")
+                                dispatch(getProductAdmin("men"))
                             }}>Mens</MenuItem>
                             <MenuItem onClick={() => {
                                 setTogalDash("product")
-                                getData("women")
+                                dispatch(getProductAdmin("women"))
+
                             }}>Womens</MenuItem>
                             <MenuItem onClick={() => {
                                 setTogalDash("product")
@@ -57,8 +61,12 @@ const AdminSlider = ({ getData, setTheme, setData, setTogalDash }) => {
                             }}>Kids</MenuItem>
                         </MenuList>
                     </Menu></li>
-                    <li><BookmarkBorderIcon className='icon' /><span>Orders</span></li>
-                    <li><DeliveryDiningIcon className='icon' /><span>Delevry</span></li>
+                    <li onClick={() => {
+                        dispatch(getProductAdmin("order"))
+                        setTogalDash("product")}} ><BookmarkBorderIcon className='icon' /><span>Orders</span></li>
+                    <li onClick={() => {
+                       dispatch(getProductAdmin("delivery"))
+                        setTogalDash("product")}}><DeliveryDiningIcon className='icon'  /><span>Delevry</span></li>
                     <p className="title">USEFUL</p>
 
                     <li><QueryStatsIcon className='icon' /><span>Stats</span></li>

@@ -11,6 +11,7 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import "./AdminNav.scss"
 import { MenuButton, MenuItem, MenuList, Menu, IconButton, InputGroup ,InputRightElement,Input} from '@chakra-ui/react';
 import AddUser from '../AddNewProduct/AddUser';
+import AddNewProduct from '../AddNewProduct/AddNewProduct';
 
 
 
@@ -62,13 +63,14 @@ const AdminNav = ({ theme, setTheme }) => {
                                 icon={<ListIcon />}
                                 variant='outline'
                                 className='icon'
+                                border="none"
                             />
                             <MenuList>
                                 <MenuItem >
                                    <AddUser/>
                                 </MenuItem>
                                 <MenuItem >
-                                   Add New User
+                                   <AddNewProduct/>
                                 </MenuItem>
                                 <MenuItem >
                                     Notification

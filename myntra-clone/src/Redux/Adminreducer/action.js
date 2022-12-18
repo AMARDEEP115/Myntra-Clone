@@ -2,10 +2,10 @@ import axios from "axios";
 import * as types from "./actionType";
 //get tasks
 
-const getData = () => (dispatch) => {
+const getProductAdmin = (parem) => (dispatch) => {
   dispatch({ type: types.GET_TASKS_REQUEST });
   return axios
-    .get(`http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/tasks`)
+    .get(`https://scary-fly-gilet.cyclic.app/${parem}`)
     .then((r) => {
       dispatch({ type: types.GET_TASKS_SUCCESS, payload: r.data });
     })
@@ -16,11 +16,11 @@ const getData = () => (dispatch) => {
 
 //add task
 
-const addData = (payload) => (dispatch) => {
+const addProductAdmin = (parem,payload) => (dispatch) => {
   dispatch({ type: types.ADD_TASK_REQUEST });
   return axios
     .post(
-      `http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/tasks`,
+      `https://scary-fly-gilet.cyclic.app/${parem}`,
       payload
     )
     .then((r) => {
@@ -33,11 +33,11 @@ const addData = (payload) => (dispatch) => {
 
 //update task
 
-const updateData = (id,payload) => (dispatch) => {
+const updateProductAdmin = (parem,id,payload) => (dispatch) => {
   dispatch({ type: types.UPDATE_TASK_REQUEST });
   return axios
     .patch(
-      `http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/tasks/${id}`,payload
+      `https://scary-fly-gilet.cyclic.app/${parem}/${id}`,payload
     )
     .then((r) => {
       dispatch({
@@ -52,27 +52,22 @@ const updateData = (id,payload) => (dispatch) => {
 //delete task
 
 
-const deleteDataSucess = (payload) => {
-  return {
-    type: types.DELETE_TASK_SUCCESS,
-    payload,
-  };
-};
 
 
 
-const deleteData = (id) => (dispatch) => {
+
+const deleteProductAdmin = (parem,id) => (dispatch) => {
   dispatch({ type: types.DELETE_TASK_REQUEST});
   return axios
     .delete(
-      `http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/tasks/${id}`
+      `https://scary-fly-gilet.cyclic.app/${parem}/${id}`
     )
     .then((r) => {
-      dispatch(deleteDataSucess());
+      dispatch({ type: types.DELETE_TASK_SUCCESS});
     })
     .catch((e) => {
       dispatch({type: types.DELETE_TASK_FAILURE});
     });
 };
 
-export { getData, addData, updateData, deleteData };
+export { getProductAdmin, addProductAdmin, updateProductAdmin, deleteProductAdmin };
