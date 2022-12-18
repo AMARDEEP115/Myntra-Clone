@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.sizeHover:hover{
+  background-color: #ff3e6c;
+}
+#cartNavbar{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.SizeItemCart:hover{
+  background-color: #ff3e6c;
+  color: white;
+}

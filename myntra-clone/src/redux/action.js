@@ -47,12 +47,12 @@ export const ShopBycategory = (payload) => ({
 
 // --------------------------------------------
 
-const getWomensdataSuccess = (payload) => {
-  return {
-    type: types.GET_WDATA_SUCCESS,
-    payload,
-  };
-};
+// const getWomensdataSuccess = (payload) => {
+//   return {
+//     type: types.GET_WDATA_SUCCESS,
+//     payload,
+//   };
+// };
 
 const getWomensdataRequest = () => {
   return {
@@ -80,12 +80,12 @@ const getWomensData = (params) => (dispatch) => {
     });
 };
 // MensData
-const getMensdataSuccess = (payload) => {
-  return {
-    type: types.GET_MDATA_SUCCESS,
-    payload,
-  };
-};
+// const getMensdataSuccess = (payload) => {
+//   return {
+//     type: types.GET_MDATA_SUCCESS,
+//     payload,
+//   };
+// };
 
 const getMensdataRequest = () => {
   return {
