@@ -10,9 +10,9 @@ import {
 } from '@chakra-ui/react'
 import { useState } from 'react'
 import ModifyProductButton from './Buttons/ModifyProductButton'
-function ModifyProduct({el}) {
+function ModifyProduct({ el }) {
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const [productsDetails,setProductDetails]=useState({...el})
+    const [productsDetails, setProductDetails] = useState({ ...el })
 
 
     return (
@@ -27,21 +27,21 @@ function ModifyProduct({el}) {
                     <ModalBody>
                         <Stack>
                             <Text>Title</Text>
-                            <Input value={productsDetails.title}  onChange={(e)=>{
-                                setProductDetails({...productsDetails,title:e.target.value})
+                            <Input value={productsDetails.title} onChange={(e) => {
+                                setProductDetails({ ...productsDetails, title: e.target.value })
                             }} />
                             <Text>Categorie</Text>
-                            <Input  value={productsDetails.categories}  onChange={(e)=>{
-                                setProductDetails({...productsDetails,categories:e.target.value})
-                            }}  />
+                            <Input value={productsDetails.categories} onChange={(e) => {
+                                setProductDetails({ ...productsDetails, categories: e.target.value })
+                            }} />
                             <Text>Price</Text>
-                            <Input  value={productsDetails.price}  onChange={(e)=>{
-                                setProductDetails({...productsDetails,price:e.target.value})
+                            <Input value={productsDetails.price} onChange={(e) => {
+                                setProductDetails({ ...productsDetails, price: e.target.value })
                             }} />
                             <Text>Description</Text>
-                            <Textarea   value={productsDetails.description}  onChange={(e)=>{
-                                setProductDetails({...productsDetails,description:e.target.value})
-                            }}  />
+                            <Textarea value={productsDetails.description} onChange={(e) => {
+                                setProductDetails({ ...productsDetails, description: e.target.value })
+                            }} />
                         </Stack>
 
                     </ModalBody>

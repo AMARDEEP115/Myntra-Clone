@@ -57,7 +57,8 @@ const AdminSlider = ({ getData, setTheme, setData, setTogalDash }) => {
                             }}>Womens</MenuItem>
                             <MenuItem onClick={() => {
                                 setTogalDash("product")
-                                getData("kids")
+                                dispatch(getProductAdmin("kids"))
+                                
                             }}>Kids</MenuItem>
                         </MenuList>
                     </Menu></li>

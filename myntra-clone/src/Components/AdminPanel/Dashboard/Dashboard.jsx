@@ -6,7 +6,7 @@ import ProductCard from './Card/ProductCard'
 import UserCard from './Card/UserCard'
 import { useSelector } from 'react-redux'
 
-const Dashboard = ({   theme, togalDash }) => {
+const Dashboard = ({   theme, togalDash ,setTogalDash}) => {
     const data=useSelector(store=>store.products)
     const isLoading=useSelector(store=>store.isLoading)
     if (isLoading) {
@@ -20,7 +20,7 @@ const Dashboard = ({   theme, togalDash }) => {
                 {
                     data.map(el => {
                         return (
-                            <DashboardCard key={el.id} el={el} theme={theme} />
+                            <DashboardCard key={el.id} el={el} theme={theme} setTogalDash={setTogalDash} />
                         )
                     })
                 }

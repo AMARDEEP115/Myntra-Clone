@@ -25,7 +25,7 @@ const AdminNav = ({ theme, setTheme }) => {
                             pointerEvents='none'
                             children={<SearchIcon color='gray.300' />}
                         />
-                        <Input type='text' placeholder='Search For Quarrye'  w={600}/>
+                        <Input type='text' placeholder='Search For Quarry'  w={600}/>
                     </InputGroup>
                 </div>
                 <div className="items">

@@ -6,7 +6,7 @@ import RemoveUserButton from './Buttons/RemoveUserButton'
 
 const UserCard = ({ el, theme }) => {
     return (
-        <Card maxW='sm' boxShadow="lg" color={theme && "white"} h="60vh">
+        <Card maxW='sm' boxShadow="lg" color={theme && "white"} h="80vh">
             <CardBody>
 
                 <Image

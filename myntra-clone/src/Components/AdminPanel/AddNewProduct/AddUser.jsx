@@ -15,7 +15,7 @@ const initialUser = {
     name: "",
     email: "",
     number: "",
-    status: ""
+    status: "user"
 }
 function AddUser() {
     const { isOpen, onOpen, onClose } = useDisclosure()

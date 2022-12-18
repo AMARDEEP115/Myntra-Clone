@@ -1,10 +1,19 @@
 import React from 'react'
-import { Divider, Text, Heading, Stack, Image, CardBody, Card, } from '@chakra-ui/react'
+import { Divider,  Heading, Stack, Image, CardBody, Card, } from '@chakra-ui/react'
+import { useDispatch } from 'react-redux'
+import { getProductAdmin } from '../../../../Redux/Adminreducer/action'
 
 
-const DashboardCard = ({ el, theme }) => {
+const DashboardCard = ({ el, theme, setTogalDash }) => {
+    const dispatch = useDispatch()
     return (
-        <Card maxW='sm' boxShadow="lg" color={theme && "white"} p={5}>
+        <Card maxW='sm' boxShadow="lg" color={theme && "white"} p={5} onClick={() => {
+            dispatch(getProductAdmin(el.parem))
+            el.parem === "user" ? setTogalDash("user") : setTogalDash("product")
+
+
+
+        }}>
             <CardBody>
                 <Image
                     src={el.images.image1}

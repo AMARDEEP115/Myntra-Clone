@@ -6,8 +6,11 @@ import {
     ModalFooter,
     ModalBody,
     ModalCloseButton,
-    Text, Button, useDisclosure, Input, Stack, Select
+    Text, Button, useDisclosure, Input, Stack, Select, Textarea
 } from '@chakra-ui/react'
+const initialProduct={
+    
+}
 function AddNewProduct() {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -23,16 +26,20 @@ function AddNewProduct() {
                     <ModalCloseButton />
                     <ModalBody>
                         <Stack>
-                            <Text>Name</Text>
-                            <Input />
-                            <Text>Email</Text>
-                            <Input />
-                            <Text>Number</Text>
+                            <Text>Image</Text>
                             <Input  />
-                            <Text>Status</Text>
+                            <Text>Title</Text>
+                            <Input />
+                            <Text>Category</Text>
+                            <Input  />
+                            <Text>Description</Text>
+                            <Textarea/>
+                            <Text>Price</Text>
+                            <Input/>
+                            <Text>Section</Text>
                             <Select placeholder='Status'>
-                                <option value='option2'>User</option>
-                                <option value='option3'>Employee</option>
+                                <option value='men'>Mens </option>
+                                <option value='women'>Womens</option>
                             </Select>
                         </Stack>
 
