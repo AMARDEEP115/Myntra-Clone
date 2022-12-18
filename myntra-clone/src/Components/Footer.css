@@ -1,0 +1,121 @@
+
+.main *{
+    font-family: Whitney, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+   
+   }
+   
+   .main{
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: space-between;
+     text-align: left;
+     gap:0px 40px;
+     
+   }
+   .main>div{
+       width: max-content;
+   }
+   
+   .main>div>p{
+       margin: 3px 0px;
+       font-size: 15px;
+   }
+   .main>div p:first-child{
+   font-weight: 500;
+   color: #000000;
+   margin: 20px 0px;
+   font-size: 12px;
+   }
+   
+   .mobile>div>div{
+   display: flex;
+   width: max-content;
+   justify-content: space-between;
+   }
+   .mobile>div:first-child img{
+       width: 150px;
+       cursor: pointer;
+   
+   }
+   .mobile>div:last-child>div{
+       width: 50%;
+   
+   }
+   .mobile>div:last-child img{
+       width: 24px;
+       
+   }
+   
+   .div4Footer>div{
+       display: flex;
+       align-items: center;
+    margin: 20px;
+   
+   }
+   
+   .div4Footer img{
+   width: 50px;
+   height: 50%;
+   }
+   .div4Footer p{
+       margin: 0px ;
+   }
+   .outerP{
+       font-weight: 500;
+       color: black;
+       
+   }
+   
+   
+   .hr{
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+    color:   #282c3f;
+    font-size: 12px;
+    padding: 20px 0px;
+   }
+   .hr div{
+       width: 89%;
+       
+   }
+   .searches{
+       text-decoration: none;
+       color:#696b79 ;
+    font-size: 14px;
+    font-weight: 400;
+       
+   }
+   
+   .flexLinks{
+       display: flex;
+       flex-wrap: wrap;
+       gap: 5px;
+       align-items: center;
+       color:#5d6072 ;
+   }
+   
+   
+   .lastDiv{
+       display: flex;
+       width: 100%;
+       justify-content: space-between;
+       color:#696b79da ;
+       margin-bottom: 50px;
+   
+   }
+   
+   .lastDiv div:first-child{
+       display: flex;
+       align-items: center;
+       width: 23%;
+       justify-content: space-between;
+   
+   }
+   
+   
+   .lastDiv a{
+       color: #526cd0;
+       text-decoration: none;
+   }
