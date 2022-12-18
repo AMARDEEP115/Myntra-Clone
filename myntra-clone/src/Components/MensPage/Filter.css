@@ -1,0 +1,15 @@
+input.largerCheckbox {
+  width: 18px;
+  height: 18px;
+  margin-right: 1rem;
+}
+input[type="checkbox"] {
+  accent-color: #ff3f6c;
+}
+input[type="radio"] {
+  accent-color: #ff3f6c;
+}
+label {
+  color: #282c3f;
+  font-size: 14px;
+}

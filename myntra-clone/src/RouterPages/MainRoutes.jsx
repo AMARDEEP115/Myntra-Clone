@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import SingalData from "../Pages/SingalData";
@@ -13,5 +14,6 @@ const MainRoutes = () => {
     </Routes>
   );
 };
+
 
 export default MainRoutes;

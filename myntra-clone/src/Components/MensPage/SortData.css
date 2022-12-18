@@ -1,0 +1,10 @@
+.head-data {
+  padding: 5px 10px;
+}
+.head-data:hover {
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: rgba(128, 128, 128, 0.144);
+  /* opacity: 0; */
+  border-radius: 18px;
+}
