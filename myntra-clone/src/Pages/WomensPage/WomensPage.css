@@ -1,0 +1,33 @@
+.womenspage {
+  width: 100%;
+  height: 100vh;
+  margin: 0 2%;
+  margin: auto;
+  /* border: 2px solid red; */
+}
+.sort-head {
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 2px solid yellow; */
+}
+.product-section {
+  width: 100%;
+  display: flex;
+  border-top: 0.5px solid grey;
+}
+.filter-section {
+  width: 250px;
+  /* border: 2px solid; */
+  border-right: 0.5px solid grey;
+}
+.products {
+  /* width: 80%; */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: auto;
+  gap: 40px;
+  padding: 15px 20px;
+}

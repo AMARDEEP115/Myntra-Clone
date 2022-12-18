@@ -6,11 +6,11 @@ const Filter = () => {
   const [sortBy, setSortBy] = useState(searchParams.getAll("sortBy") || "");
   const initialBrand = searchParams.getAll("brand");
   const [brand, setBrand] = useState(initialBrand || []);
-  const initialcategory = searchParams.getAll("categories");
-  const [categories, setCategory] = useState(initialcategory || []);
+  const initialcategory = searchParams.getAll("category");
+  const [category, setCategory] = useState(initialcategory || []);
 
   const handleCategoryBox = (e) => {
-    const newCategory = [...categories];
+    const newCategory = [...category];
     if (newCategory.includes(e.target.value)) {
       newCategory.splice(newCategory.indexOf(e.target.value), 1);
     } else {
@@ -35,13 +35,13 @@ const Filter = () => {
   };
   useEffect(() => {
     let params = {};
-    categories && (params.categories = categories);
+    category && (params.category = category);
     brand && (params.brand = brand);
     sortBy && (params.sortBy = sortBy);
     // params.brand = brand;
     console.log(params);
     setSearchParams(params);
-  }, [brand, categories, setSearchParams, sortBy]);
+  }, [brand, category, setSearchParams, sortBy]);
 
   // console.log(brand);
   return (
@@ -92,28 +92,28 @@ const Filter = () => {
             fontWeight: "700",
           }}
         >
-          categories
+          category
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>
           <input
             className="largerCheckbox"
             type="checkbox"
-            checked={categories.includes("tshirt")}
-            value="tshirt"
+            checked={category.includes("Men's Clothing")}
+            value="Men's Clothing"
             onChange={handleCategoryBox}
           />
-          <label>tshirt</label>
+          <label>Men's Clothing</label>
         </div>
 
         <div style={{ display: "flex", alignItems: "center" }}>
           <input
             className="largerCheckbox"
             type="checkbox"
-            checked={categories.includes("tops")}
-            value="tops"
+            checked={category.includes("Men's Footwear")}
+            value="Men's Footwear"
             onChange={handleCategoryBox}
           />
-          <label>tops</label>
+          <label>Men's Footwear</label>
         </div>
       </div>
 
@@ -159,7 +159,7 @@ const Filter = () => {
           <input
             className="largerCheckbox"
             type="checkbox"
-            checked={categories.includes("tops")}
+            checked={category.includes("tops")}
             value="tops"
             onChange={handleCategoryBox}
           />
@@ -214,11 +214,11 @@ const Filter = () => {
           <input
             className="largerCheckbox"
             type="checkbox"
-            checked={brand.includes("KALINI")}
-            value="KALINI"
+            checked={brand.includes("Dressberry")}
+            value="Dressberry"
             onChange={handleBrandCheckBox}
           />
-          <label>KALINI</label>
+          <label>Dressberry</label>
         </div>
         <div style={{ display: "flex", alignItems: "center" }}>
           <input
