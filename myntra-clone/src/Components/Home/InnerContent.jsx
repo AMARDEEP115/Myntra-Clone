@@ -5,7 +5,7 @@ import {
   getCategoriesData,
   getDealsOftheData,
   getTopPicksData,
-} from "../../redux/Home/actions";
+} from "../../redux/action";
 import BestOfMyntra from "./BestOfMyntra";
 import CategoriesToBag from "./ShopByCategories";
 import DealOftheDayCard from "./DealOftheDayCard";
