@@ -10,16 +10,13 @@ function App() {
   console.log('user:', user)
   return (
     <div className="App">
-      {user.status==="user" && <Navbar/>}
-      {user.status==="" && <Navbar/>}
+      <Navbar/>
       {/* <MainRoutes /> */}
       {/* <WomensPage/> */}
       {/* <MensPage /> */}
 
       <MainRoutes />
-      {user.status==="" && <Footer/>}
-      {user.status==="user" && <Footer/>}
-
+      <Footer/>
     </div>
   );
 }
