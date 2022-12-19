@@ -16,11 +16,12 @@ import {
     Text,
     CardFooter,
     Badge,
+    Spacer,
   } from '@chakra-ui/react'
+import Logout from './Logout'
 function ProfileCard() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const el=JSON.parse(localStorage.getItem("user"))
-    console.log('el:', el)
   
     return (
       <>
@@ -56,6 +57,8 @@ function ProfileCard() {
             {el.status === "employee" && <Badge colorScheme='purple'>Employee</Badge>}
             {el.status === "admin" && <Badge colorScheme='red'>Admin</Badge>}
             <CardFooter>
+
+              
               
 
                 {/* {!el.admin && <ButtonGroup spacing='35' ml={10}>
@@ -69,6 +72,8 @@ function ProfileCard() {
               
             </ModalBody>
             <ModalFooter>
+            <Logout/>
+            <Spacer/>
               <Button onClick={onClose}>Close</Button>
             </ModalFooter>
           </ModalContent>

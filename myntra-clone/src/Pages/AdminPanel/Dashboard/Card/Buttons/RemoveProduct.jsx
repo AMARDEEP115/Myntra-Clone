@@ -14,7 +14,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { getProductAdmin } from '../../../../../REDUX/AdminRedux/action'
 
-function RemoveProduct({id}) {
+function RemoveProduct({id,status}) {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const cancelRef = React.useRef()
     const toast = useToast()
@@ -24,18 +24,20 @@ function RemoveProduct({id}) {
     const DeleteProduct = (id) => {
         axios.delete(`https://scary-fly-gilet.cyclic.app/men/${id}`).then(()=>{
           dispatch(getProductAdmin("men"))
+        }).catch((e)=>{
+          dispatch(getProductAdmin("men"))
+
+
         })
         
     }
   
     return (
       <>
-        <Button colorScheme='red' onClick={
-          onOpen}
-         
-    >
+        <Button colorScheme='red'  onClick={onOpen}>
           Remove
         </Button>
+       
   
         <AlertDialog
           isOpen={isOpen}
@@ -56,19 +58,21 @@ function RemoveProduct({id}) {
                 <Button ref={cancelRef} onClick={onClose}>
                   Cancel
                 </Button>
-                <Button colorScheme='red' onClick={  ()=>{
-                    DeleteProduct(id)
-                  onClose()
-                  toast({
-                    title: 'Product Deleted',
-                    description: "You can't undo this action afterwards.",
-                    status: 'error',
-                    duration: 3000,
-                    isClosable: true,
-                  })
-                } } ml={3}>
-                  Delete
-                </Button>
+  <Button  colorScheme='red' onClick={  ()=>{
+            DeleteProduct(id)
+          onClose()
+          toast({
+            title: 'Product Deleted',
+            description: "You can't undo this action afterwards.",
+            status: 'error',
+            duration: 3000,
+            isClosable: true,
+          })
+        } } ml={3}>
+          Delete
+        </Button>
+
+  
               </AlertDialogFooter>
             </AlertDialogContent>
           </AlertDialogOverlay>

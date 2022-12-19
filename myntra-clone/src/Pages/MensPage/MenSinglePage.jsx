@@ -19,10 +19,12 @@ import StarIcon from "@mui/icons-material/Star";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import axios from "axios";
+import Navbar from "../../Components/Navbar";
+import Footer from "../../Components/Footer";
 
 function MenSinglePage() {
   const [data, setData] = useState([]);
-//   const { addToData } = useContext(FilterContext);
+  //   const { addToData } = useContext(FilterContext);
 
   const { id } = useParams();
   console.log(id);
@@ -40,21 +42,22 @@ function MenSinglePage() {
   }, []);
 
 
-  const addToData=(data)=>{
-    axios.post('https://scary-fly-gilet.cyclic.app/cart',data).then((r)=>console.log(r)).catch((e)=>console.log(e))
+  const addToData = (data) => {
+    axios.post('https://scary-fly-gilet.cyclic.app/cart', data).then((r) => console.log(r)).catch((e) => console.log(e))
   }
 
-      const addToDataWishlist = (data) => {
-        axios
-          .post("https://scary-fly-gilet.cyclic.app/wishlist", data)
-          .then((r) => console.log(r))
-          .catch((e) => console.log(e));
-      };
+  const addToDataWishlist = (data) => {
+    axios
+      .post("https://scary-fly-gilet.cyclic.app/wishlist", data)
+      .then((r) => console.log(r))
+      .catch((e) => console.log(e));
+  };
   return (
     <>
       {data.map((ele) => {
         return (
           <>
+            <Navbar />
             <DetailsMainDiv key={ele.id}>
               <ImageContainer>
                 <ImgDiv>
@@ -217,7 +220,7 @@ function MenSinglePage() {
                       </p>
                     </BagDiv>
                     <WishDiv
-                    onClick={()=>{dispatch(addToDataWishlist(ele))}}>
+                      onClick={() => { dispatch(addToDataWishlist(ele)) }}>
                       <div style={{ color: "gray" }}>
                         <FavoriteBorderIcon />
                       </div>
@@ -359,6 +362,7 @@ function MenSinglePage() {
                 </div>
               </SubDetailsDiv>
             </DetailsMainDiv>
+            <Footer/>
           </>
         );
       })}

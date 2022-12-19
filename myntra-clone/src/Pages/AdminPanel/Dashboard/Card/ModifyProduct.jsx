@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react'
 import { useState } from 'react'
 import ModifyProductButton from './Buttons/ModifyProductButton'
-function ModifyProduct({ el }) {
+function ModifyProduct({ el,setTogalDash }) {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [productsDetails, setProductDetails] = useState({ ...el })
 
@@ -48,7 +48,7 @@ function ModifyProduct({ el }) {
 
                     <ModalFooter>
                         <Button variant='ghost' colorScheme='blue' mr={3} onClick={onClose}>Close</Button>
-                        <ModifyProductButton productsDetails={productsDetails} />
+                        <ModifyProductButton productsDetails={productsDetails} setTogalDash={setTogalDash} />
                     </ModalFooter>
                 </ModalContent>
             </Modal>

@@ -2,6 +2,8 @@ import { Container, Flex, Grid, Heading, HStack, PinInputField, PinInput, Alert,
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
+import Footer from '../Components/Footer'
+import Navbar from '../Components/Navbar'
 import { getProductAdmin } from '../REDUX/AdminRedux/action'
 
 const Login = () => {
@@ -57,9 +59,11 @@ const Login = () => {
 
 
     return (
+        <>
+        <Navbar/>
 
         <Grid bg="#FFF5F5" w="100%" h="100vh" display="grid" justifyContent="center" alignItems="center">
-            {otpAlert && <Alert status='success'> Data uploaded to the server. Fire on!  </Alert>}
+            {otpAlert && <Alert status='success'> Otp Sent  </Alert>}
             <Container  >
                 <Grid w="400px" bg="#FFF" boxShadow="xl">
                     <Grid>
@@ -106,12 +110,15 @@ const Login = () => {
                             }
                         </Flex>
                         <Flex color="#FF3F6C"> <Link to="/loginuser" >Want's To Login With Email ?</Link></Flex>
+                        <Flex color="#FF3F6C"> <Link to="/signup" >Don't Have Account?</Link></Flex>
 
                     </Grid>
                 </Grid>
 
             </Container>
         </Grid>
+        <Footer/>
+        </>
     )
 }
 

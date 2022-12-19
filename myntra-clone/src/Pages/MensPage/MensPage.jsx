@@ -9,6 +9,8 @@ import SortData from "../../Components/WomensPage/SortData";
 import { useLocation, useSearchParams } from "react-router-dom";
 import MensCard from "../../Components/MensPage/MensCard";
 import { Link } from "react-router-dom";
+import Navbar from "../../Components/Navbar";
+import Footer from "../../Components/Footer";
 const MensPage = () => {
   // https://scary-fly-gilet.cyclic.app/women
   const location = useLocation();
@@ -49,6 +51,8 @@ const MensPage = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
+    <>
+    <Navbar/>
     <div className="womenspage">
       <div className="sort-head">
         <SortData />
@@ -78,6 +82,10 @@ const MensPage = () => {
         {/* <Pagination postPerPage={postPerPage} totalPosts={womens.length} paginate={paginate}/> */}
       </div>
     </div>
+    <Footer/>
+
+    </>
+
   );
 };
 

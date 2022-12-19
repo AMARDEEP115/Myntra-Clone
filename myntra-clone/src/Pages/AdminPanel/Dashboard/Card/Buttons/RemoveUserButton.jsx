@@ -26,9 +26,7 @@ function RemoveUserButton({ id }) {
   }
   return (
     <>
-      <Button colorScheme='red' onClick={
-        onOpen}
-
+      <Button colorScheme='red' onClick={onOpen}
       >
         Remove
       </Button>

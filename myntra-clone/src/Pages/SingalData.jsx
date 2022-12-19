@@ -15,6 +15,8 @@ import {
   BagDiv,
   RatingDiv,
 } from "./detailStyled";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 
 
 function Details() {
@@ -31,6 +33,8 @@ function Details() {
   }, []);
 
   return (
+    <>
+    <Navbar/>
   
             <DetailsMainDiv >
               <ImageContainer>
@@ -342,6 +346,10 @@ function Details() {
                 </div>
               </SubDetailsDiv>
             </DetailsMainDiv>
+            <Footer/>
+
+    </>
+
         
          
         );

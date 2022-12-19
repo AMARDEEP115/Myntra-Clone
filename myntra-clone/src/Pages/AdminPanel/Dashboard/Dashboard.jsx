@@ -6,9 +6,9 @@ import ProductCard from './Card/ProductCard'
 import UserCard from './Card/UserCard'
 import { useSelector } from 'react-redux'
 
-const Dashboard = ({   theme, togalDash ,setTogalDash}) => {
-    const data=useSelector(store=>store.AdminReducer.products)
-    const isLoading=useSelector(store=>store.isLoading)
+const Dashboard = ({ theme, togalDash, setTogalDash }) => {
+    const data = useSelector(store => store.AdminReducer.products)
+    const isLoading = useSelector(store => store.AdminReducer.isLoading)
     if (isLoading) {
         return <Grid display="grid" justifyContent="center" alignItems="center" h="100vh">
             <CircularProgress isIndeterminate color='green.300' />
@@ -16,9 +16,9 @@ const Dashboard = ({   theme, togalDash ,setTogalDash}) => {
     }
     if (togalDash === "dash") {
         return (
-            <Grid display="grid" gridTemplateColumns="1fr 1fr 1fr 1fr" gap="10px" p="0px" className='dashContainer' borderTop=".1px solid black">
+            <Grid display="grid" gridTemplateColumns="1fr 1fr 1fr 1fr" gap="10px" p="0px" className='dashContainer' >
                 {
-                  data.length>0 &&  data.map(el => {
+                    data.length > 0 && data.map(el => {
                         return (
                             <DashboardCard key={el.id} el={el} theme={theme} setTogalDash={setTogalDash} />
                         )
@@ -30,33 +30,30 @@ const Dashboard = ({   theme, togalDash ,setTogalDash}) => {
 
     if (togalDash === "product") {
         return (
-            <Grid display="grid"  gridTemplateColumns="1fr 1fr 1fr 1fr" gap="10px" p="0px" className='dashContainer' borderTop=".1px solid black">
+            <Grid display="grid" gridTemplateColumns="1fr 1fr 1fr 1fr" gap="10px" p="0px" className='dashContainer' >
                 {
-                  data.length>1 &&   data.map(el => {
+                    data.length > 1 && data.map(el => {
                         return (
-                            <ProductCard key={el.id} el={el} theme={theme} />
+                            <ProductCard key={el.id} el={el} theme={theme} setTogalDash={setTogalDash}/>
                         )
                     })
                 }
             </Grid>
-
-
-
         )
     }
 
 
     if (togalDash === "user") {
         return (
-            <Grid display="grid"  gridTemplateColumns="1fr 1fr 1fr 1fr" gap="10px" p="0px" className='dashContainer' borderTop=".1px solid #555">
+            <Grid display="grid" gridTemplateColumns="1fr 1fr 1fr 1fr" gap="10px" p="0px" className='dashContainer' >
                 {
-                   data.length>1 &&  data.map(el => {
+                    data.length > 1 && data.map(el => {
                         return (
                             <UserCard key={el.id} el={el} theme={theme} />
 
                         )
                     })
-                }   
+                }
             </Grid>
 
 

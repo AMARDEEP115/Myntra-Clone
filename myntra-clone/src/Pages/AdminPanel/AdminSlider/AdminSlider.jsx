@@ -12,23 +12,17 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import LogoutIcon from '@mui/icons-material/Logout';
 import "./AdminSlider.scss"
-import { MenuButton, MenuItem, MenuList,  Menu } from '@chakra-ui/react';
+import { MenuButton, MenuItem, MenuList, Menu } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import NotificationCard from '../Dashboard/Card/NotificationCard';
 import ProfileCard from '../Dashboard/Card/ProfileCard';
 import { getProductAdmin } from '../../../REDUX/AdminRedux/action';
-const initialuser={
-    id: null,
-    name: "",
-    password: "",
-    email: "",
-    number: null,
-    status: ""
-}
+import Logout from '../Dashboard/Card/Logout';
 
 
-const AdminSlider = ({  setTheme,  setTogalDash }) => {
-    const dispatch=useDispatch()
+
+const AdminSlider = ({ setTheme, setTogalDash }) => {
+    const dispatch = useDispatch()
 
     return (
         <div className='sidebar'>
@@ -41,14 +35,16 @@ const AdminSlider = ({  setTheme,  setTogalDash }) => {
                 <ul>
                     <p className="title">MAIN</p>
                     <li onClick={() => {
-                        dispatch(getProductAdmin("Dashboard"))
-                        setTogalDash("dash")
+                          dispatch(getProductAdmin("Dashboard")).then(()=>{
+                            setTogalDash("dash")
+                        })
                     }}><DashboardIcon className='icon' /><span>DashBoard</span></li>
                     <p className="title">LISTS</p>
 
                     <li onClick={() => {
-                       dispatch(getProductAdmin("user"))
-                        setTogalDash("user")
+                         setTogalDash("user")
+                        dispatch(getProductAdmin("user"))
+                       
 
                     }}><PersonIcon className='icon' /><span>Users</span></li>
                     <li> <ProductionQuantityLimitsIcon className='icon' /><Menu>
@@ -68,20 +64,22 @@ const AdminSlider = ({  setTheme,  setTogalDash }) => {
                             <MenuItem onClick={() => {
                                 setTogalDash("product")
                                 dispatch(getProductAdmin("kids"))
-                                
+
                             }}>Kids</MenuItem>
                         </MenuList>
                     </Menu></li>
                     <li onClick={() => {
                         dispatch(getProductAdmin("order"))
-                        setTogalDash("product")}} ><BookmarkBorderIcon className='icon' /><span>Orders</span></li>
+                        setTogalDash("product")
+                    }} ><BookmarkBorderIcon className='icon' /><span>Orders</span></li>
                     <li onClick={() => {
-                       dispatch(getProductAdmin("delivery"))
-                        setTogalDash("product")}}><DeliveryDiningIcon className='icon'  /><span>Delivery</span></li>
+                        dispatch(getProductAdmin("delivery"))
+                        setTogalDash("product")
+                    }}><DeliveryDiningIcon className='icon' /><span>Delivery</span></li>
                     <p className="title">USEFUL</p>
 
                     <li><QueryStatsIcon className='icon' /><span>Stats</span></li>
-                    <li><NotificationImportantIcon className='icon' /><NotificationCard/></li>
+                    <li><NotificationImportantIcon className='icon' /><NotificationCard /></li>
                     <p className="title">SERVICES</p>
 
                     <li><HealthAndSafetyIcon className='icon' /><span>System Health</span></li>
@@ -89,10 +87,8 @@ const AdminSlider = ({  setTheme,  setTogalDash }) => {
                     <li><SettingsIcon className='icon' /><span>Settings</span></li>
                     <p className="title">USER</p>
 
-                    <li><PersonOutlineIcon className='icon' /><ProfileCard/></li>
-                    <li onClick={()=>{
-                        localStorage.setItem("user",JSON.stringify(initialuser))
-                    }}><LogoutIcon className='icon' /><span>Logout</span></li>
+                    <li><PersonOutlineIcon className='icon' /><ProfileCard /></li>
+                    <li><LogoutIcon className='icon' /> <Logout />  </li>
                 </ul>
             </div>
             <div className="bottom">

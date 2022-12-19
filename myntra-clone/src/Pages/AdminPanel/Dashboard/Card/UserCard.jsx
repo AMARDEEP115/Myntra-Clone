@@ -32,7 +32,7 @@ const UserCard = ({ el, theme }) => {
             <CardFooter>
                 <ButtonGroup spacing='35' ml={10}>
                     <ModifyUser el={el} />
-                    <RemoveUserButton id={el.id} />
+                    <RemoveUserButton id={el.id} status={el.status} />
                 </ButtonGroup>
 
 

@@ -8,6 +8,8 @@ import { getWomensData } from "../../REDUX/action";
 import Pagination from "../../Components/WomensPage/Pagination";
 import SortData from "../../Components/WomensPage/SortData";
 import { Link, useLocation, useSearchParams } from "react-router-dom";
+import Navbar from "../../Components/Navbar";
+import Footer from "../../Components/Footer";
 const WomensPage = () => {
   // https://scary-fly-gilet.cyclic.app/women
   const location = useLocation();
@@ -48,6 +50,9 @@ const WomensPage = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
+    <>
+    <Navbar/>
+    
     <div className="womenspage">
       <div className="sort-head">
         <SortData />
@@ -80,6 +85,10 @@ const WomensPage = () => {
         {/* <Pagination postPerPage={postPerPage} totalPosts={womens.length} paginate={paginate}/> */}
       </div>
     </div>
+
+    <Footer/>
+    </>
+
   );
 };
 

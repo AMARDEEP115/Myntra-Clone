@@ -12,10 +12,11 @@ import {
     useToast,
 } from '@chakra-ui/react'
 
-const ModiyUserButton = ({status, modifyuser}) => {
+const ModiyUserButton = ({ status, modifyuser }) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const cancelRef = React.useRef()
     const toast = useToast()
+    
 
     return (
         <>
@@ -40,18 +41,7 @@ const ModiyUserButton = ({status, modifyuser}) => {
                         <Button ref={cancelRef} onClick={onClose}>
                             No
                         </Button>
-          { status==="admin" ?         <Button colorScheme='red' isDisabled  ml={3} ref={cancelRef} onClick={() => {
-                        toast({
-                            title: 'User Details Updeted',
-                            description: "We've created your account for you.",
-                            status: 'sucess',
-                            duration: 3000,
-                            isClosable: true,
-                        })
-                    }}> Can't </Button>:
-
-                       <Button colorScheme='red' ml={3} ref={cancelRef} onClick={() => {
-                        modifyuser()
+                        {status === "admin" ? <Button colorScheme='red' isDisabled ml={3} ref={cancelRef} onClick={() => {
                             toast({
                                 title: 'User Details Updeted',
                                 description: "We've created your account for you.",
@@ -59,8 +49,19 @@ const ModiyUserButton = ({status, modifyuser}) => {
                                 duration: 3000,
                                 isClosable: true,
                             })
-                           
-                        }}> Yes </Button>}
+                        }}> Can't </Button> :
+
+                            <Button colorScheme='red' ml={3} ref={cancelRef} onClick={() => {
+                                modifyuser()
+                                toast({
+                                    title: 'User Details Updeted',
+                                    description: "We've created your account for you.",
+                                    status: 'sucess',
+                                    duration: 3000,
+                                    isClosable: true,
+                                })
+
+                            }}> Yes </Button>}
                     </AlertDialogFooter>
                 </AlertDialogContent>
             </AlertDialog>

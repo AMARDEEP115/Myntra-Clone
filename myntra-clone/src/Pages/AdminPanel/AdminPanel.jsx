@@ -10,6 +10,7 @@ const AdminPanel = () => {
     const [theme, setTheme] = useState(false)
     const dispatch = useDispatch()
     const [togalDash, setTogalDash] = useState("")
+    console.log('togalDash:', togalDash)
 
     useEffect(() => {
         dispatch(getProductAdmin("Dashboard")).then(()=>{

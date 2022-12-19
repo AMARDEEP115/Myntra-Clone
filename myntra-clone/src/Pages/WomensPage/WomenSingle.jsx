@@ -19,6 +19,8 @@ import StarIcon from "@mui/icons-material/Star";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import axios from "axios";
+import Navbar from "../../Components/Navbar";
+import Footer from "../../Components/Footer";
 
 function WomenSingle() {
   const [data, setData] = useState([]);
@@ -60,6 +62,7 @@ function WomenSingle() {
       {data.map((ele) => {
         return (
           <>
+          <Navbar/>
             <DetailsMainDiv key={ele.id}>
               <ImageContainer>
                 <ImgDiv>
@@ -363,6 +366,7 @@ function WomenSingle() {
                 </div>
               </SubDetailsDiv>
             </DetailsMainDiv>
+            <Footer/>
           </>
         );
       })}

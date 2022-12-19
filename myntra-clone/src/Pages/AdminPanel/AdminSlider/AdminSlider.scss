@@ -1,75 +1,74 @@
 .sidebar {
-    flex: 1;
-    border-right: 0.5px solid gray;
-    min-height: 100vh;
-    .top {
-      height: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .logo {
-        font-size: 20px;
+  flex: 1;
+  border-right: 0.5px solid gray;
+  min-height: 100vh;
+  .top {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #6369ff;
+    }
+  }
+  .center {
+    padding-left: 10px;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      .title {
+        font-size: 10px;
         font-weight: bold;
-        color: #6369ff;
+        color: #999;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        text-align: left;
       }
-    }
-    .center {
-      padding-left: 10px;
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        .title {
-          font-size: 10px;
-          font-weight: bold;
-          color: #999;
-          margin-top: 15px;
-          margin-bottom: 5px;
-          text-align: left;
-        }
-        li {
-          display: flex;
-          align-items: center;
-          padding: 5px;
-          cursor: pointer;
-  
-          &:hover {
-            background-color: antiquewhite;
-          }
-        }
-  
-        .icon {
-          font-size: 18px;
-          color: #7451f8;
-        }
-        span {
-          font-size: 13px;
-          font-weight: 600;
-          color: #888;
-          margin-left: 10px;
-        }
-      }
-    }
-    .bottom {
-      display: flex;
-      align-items: center;
-      margin: 10px;
-      .colorOption {
-        width: 20px;
-        height: 20px;
-        margin-left: 5px;
-  
-        border-radius: 5px;
-        border: 1px solid #7451f8;
+      li {
+        display: flex;
+        align-items: center;
+        padding: 5px;
         cursor: pointer;
-  
-        &:nth-child(1) {
-          background-color: whitesmoke;
+
+        &:hover {
+          background-color: antiquewhite;
         }
-        &:nth-child(2) {
-          background-color: #333;
-        }
+      }
+
+      .icon {
+        font-size: 18px;
+        color: #7451f8;
+      }
+      span {
+        font-size: 13px;
+        font-weight: 600;
+        color: #888;
+        margin-left: 10px;
       }
     }
   }
-  
+  .bottom {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    .colorOption {
+      width: 20px;
+      height: 20px;
+      margin-left: 5px;
+
+      border-radius: 5px;
+      border: 1px solid #7451f8;
+      cursor: pointer;
+
+      &:nth-child(1) {
+        background-color: whitesmoke;
+      }
+      &:nth-child(2) {
+        background-color: #333;
+      }
+    }
+  }
+}

@@ -9,6 +9,7 @@ import { SlMagnifier } from "react-icons/sl";
 import { SlUser } from "react-icons/sl";
 import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
+import Logout from "../Pages/AdminPanel/Dashboard/Card/Logout";
 
 export default function Navbar() {
   const [q, setQ] = useState("")
@@ -85,12 +86,11 @@ export default function Navbar() {
                   <p style={{ fontWeight: "400" }}>
                  To access account and manage orders
                   </p>
-
-                </div>
-                 <button>LOGIN/SIGNUP</button>
+                  </div>
+                 <Link to="/login"><button>LOGIN/SIGNUP</button></Link>
               </div>
 
-              <div>
+              <div style={{fontSize:"20px"}}>
                 <p>Orders</p>
               </div>
               <div>
@@ -100,21 +100,22 @@ export default function Navbar() {
                 <p>Gift Cards</p>
               </div>
               <div>
-                <p>Contect Us</p>
+                <p><Logout/></p>
               </div>
-              <div>Myntra Insider <span>NEW</span></div>
-              <div></div>
+             
             </div>
           </div>
 
-          <div style={{ cursor: "pointer" }} className={styles.navpadding} >
+          <Link to="/wishlist"><div style={{ cursor: "pointer" }} className={styles.navpadding} >
           <IoMdHeartEmpty/>
-            <p><Link to="/wishlist">Wishlist</Link></p>
+            <p>Wishlist</p>
           </div>
-          <div style={{ cursor: "pointer" }} className={styles.navpadding}>
+          </Link>
+          <Link to="/cart"> <div style={{ cursor: "pointer" }} className={styles.navpadding}>
                 <HiOutlineShoppingBag/>
-            <p><Link to="/cart">Bag</Link></p>
+            <p>Bag</p>
           </div>
+          </Link>
         </div>
 
       </div>

@@ -3,7 +3,7 @@ import {   ButtonGroup,  Text, Heading, Stack, Image, CardBody, Card } from '@ch
 import ModifyProduct from './ModifyProduct'
 import RemoveProduct from './Buttons/RemoveProduct'
 
-const ProductCard = ({el,theme}) => {
+const ProductCard = ({el,theme,setTogalDash}) => {
 
     return (
         <Card maxW='sm' boxShadow="lg" color={theme && "white"} h="100vh" >
@@ -30,7 +30,7 @@ const ProductCard = ({el,theme}) => {
             </CardBody>
        
                 <ButtonGroup spacing='35' ml={10} mt="-40px" mb={10}>
-                <ModifyProduct el={el}/>
+                <ModifyProduct el={el} setTogalDash={setTogalDash}/>
                     <RemoveProduct id={el.id}/>
                 </ButtonGroup>
             

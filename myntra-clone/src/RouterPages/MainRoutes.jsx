@@ -10,6 +10,7 @@ import Cart from "../Pages/Cart";
 import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
 import AdminPanel from "../Pages/AdminPanel/AdminPanel";
+import UserLogin from "../Pages/UserLogin";
 
 const MainRoutes = () => {
   return (
@@ -25,6 +26,7 @@ const MainRoutes = () => {
       <Route path="/login" element={<Login/>}/>
       <Route path="/signup" element={<Signup/>}/>
       <Route path="/admin" element={<AdminPanel/>}/>
+      <Route path="/loginuser" element={<UserLogin/>}/>
 
 
       {/* fun(el)=>
