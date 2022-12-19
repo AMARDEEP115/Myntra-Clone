@@ -1,0 +1,27 @@
+
+::-webkit-scrollbar {
+    display: none;
+  }
+.home{
+    display: flex;
+    
+    user-select: none;
+   
+
+    .homeContainer{
+        flex: 6;
+
+    }
+}
+.homeDark{
+    background-color: #080B15;
+    display: flex;
+    user-select: none;
+   
+
+    .homeContainer{
+        flex: 6;
+
+    }
+
+}

@@ -10,8 +10,9 @@ import { Womensreducer } from "./Womensreducer";
 import { MensReducer } from "./MensReducer";
 import {reducer as WishReducer} from "./Wishlist/reducer";
 import {reducer as CartReducer} from "./Cart/reducer";
+import {reducer as AdminReducer} from './AdminRedux/reducer'
 const rootreducer = combineReducers({
-  home: Homereducer,womendata:Womensreducer,mensdata:MensReducer,WishReducer,CartReducer
+  home: Homereducer,womendata:Womensreducer,mensdata:MensReducer,WishReducer,CartReducer,AdminReducer
 });
 
 export const store = createStore(rootreducer, compose(applyMiddleware(thunk)));

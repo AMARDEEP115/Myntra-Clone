@@ -7,6 +7,9 @@ import WomenSingle from "../Pages/WomensPage/WomenSingle";
 import MenSinglePage from "../Pages/MensPage/MenSinglePage";
 import Wishlist from "../Pages/Wishlist";
 import Cart from "../Pages/Cart";
+import Login from "../Pages/Login";
+import Signup from "../Pages/Signup";
+import AdminPanel from "../Pages/AdminPanel/AdminPanel";
 
 const MainRoutes = () => {
   return (
@@ -19,6 +22,10 @@ const MainRoutes = () => {
       <Route path="/mens/:id" element={<MenSinglePage />} />
       <Route path="/wishlist" element={<Wishlist/>}/>
       <Route path="/cart" element={<Cart/>}/>
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/signup" element={<Signup/>}/>
+      <Route path="/admin" element={<AdminPanel/>}/>
+
 
       {/* fun(el)=>
       {axios
