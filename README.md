@@ -1,5 +1,8 @@
 # direct-cast-6709
 
+TECH STACKS :
+  REACT | REACT-REDUX | REACT-ROUTER-DOM | CHAKRA-UI
+
 ![image](https://user-images.githubusercontent.com/105987614/208336161-9f2cefda-5dd1-4211-a393-141d41c8dceb.png)
 
 ![image](https://user-images.githubusercontent.com/105987614/208336209-a810c511-8c6b-451f-b69e-043464beebe0.png)
