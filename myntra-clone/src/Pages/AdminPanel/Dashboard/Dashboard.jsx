@@ -49,7 +49,7 @@ const Dashboard = ({ theme, togalDash, setTogalDash }) => {
                 {
                     data.length > 1 && data.map(el => {
                         return (
-                            <UserCard key={el.id} el={el} theme={theme} />
+                            <UserCard key={el.id} el={el} theme={theme} setTogalDash={setTogalDash} />
 
                         )
                     })

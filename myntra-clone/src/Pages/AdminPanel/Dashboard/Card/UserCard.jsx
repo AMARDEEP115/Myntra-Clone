@@ -4,7 +4,7 @@ import ModifyUser from './ModifyUser'
 import RemoveUserButton from './Buttons/RemoveUserButton'
 
 
-const UserCard = ({ el, theme }) => {
+const UserCard = ({ el, theme ,setTogalDash }) => {
     return (
         <Card maxW='sm' boxShadow="lg" color={theme && "white"} h="80vh">
             <CardBody>
@@ -31,7 +31,7 @@ const UserCard = ({ el, theme }) => {
             {el.status === "admin" && <Badge colorScheme='red'>Admin</Badge>}
             <CardFooter>
                 <ButtonGroup spacing='35' ml={10}>
-                    <ModifyUser el={el} />
+                    <ModifyUser el={el} setTogalDash={setTogalDash} />
                     <RemoveUserButton id={el.id} status={el.status} />
                 </ButtonGroup>
 

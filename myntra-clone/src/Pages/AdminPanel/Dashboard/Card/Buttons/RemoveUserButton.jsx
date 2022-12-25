@@ -13,7 +13,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { deleteProductAdmin, getProductAdmin } from '../../../../../REDUX/AdminRedux/action'
 
-function RemoveUserButton({ id }) {
+function RemoveUserButton({ id,status }) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const cancelRef = React.useRef()
   const toast = useToast()
@@ -26,10 +26,8 @@ function RemoveUserButton({ id }) {
   }
   return (
     <>
-      <Button colorScheme='red' onClick={onOpen}
-      >
-        Remove
-      </Button>
+     { status==="admin"? <Button colorScheme='red' onClick={onOpen} isDisabled> Remove</Button>:<Button colorScheme='red' onClick={onOpen}> Remove </Button>}
+      
 
       <AlertDialog
         isOpen={isOpen}

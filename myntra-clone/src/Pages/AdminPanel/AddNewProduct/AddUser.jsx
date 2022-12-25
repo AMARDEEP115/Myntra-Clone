@@ -67,6 +67,7 @@ function AddUser() {
                         <Button variant='ghost' colorScheme='blue' mr={3} onClick={onClose}>Close</Button>
                         <Button colorScheme='blue' onClick={() => {
                             adduser()
+                            onClose()
                             toast({
                                 title: 'Account created.',
                                 description: "We've created your account for you.",

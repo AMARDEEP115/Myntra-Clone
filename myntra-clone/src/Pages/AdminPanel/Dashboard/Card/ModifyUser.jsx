@@ -8,21 +8,32 @@ import {
     ModalCloseButton,
     Text, Button, useDisclosure, Input, Stack, Select
 } from '@chakra-ui/react'
+import axios from 'axios'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { getProductAdmin, updateProductAdmin } from '../../../../REDUX/AdminRedux/action'
+import { getProductAdmin } from '../../../../REDUX/AdminRedux/action'
 import ModiyUserButton from './Buttons/ModiFyUserButton'
 
-function ModifyUser({ el }) {
+function ModifyUser({ el, setTogalDash }) {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [userDetails, setUserDetails] = useState({ ...el })
     const dispatch = useDispatch()
     const modifyuser = () => {
 
-        dispatch(updateProductAdmin("user", userDetails.id, userDetails)).then(()=>{
-            dispatch(getProductAdmin("user"))
+        // dispatch(updateProductAdmin("user", userDetails.id, userDetails)).then(()=>{
+        //     dispatch(getProductAdmin("user"))
+        // })
+        axios.patch(`https://scary-fly-gilet.cyclic.app/user/${userDetails.id}`, userDetails).then(() => {
+
+        }).catch(() => {
+            console.log("hii")
+            dispatch(getProductAdmin('user')).then(() => {
+                setTogalDash("user")
+            }).catch(() => {
+                setTogalDash("user")
+            })
         })
-       
+
 
     }
 

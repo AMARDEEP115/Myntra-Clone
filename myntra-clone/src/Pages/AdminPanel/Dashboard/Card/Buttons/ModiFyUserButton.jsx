@@ -13,6 +13,7 @@ import {
 } from '@chakra-ui/react'
 
 const ModiyUserButton = ({ status, modifyuser }) => {
+    console.log('status:', status)
     const { isOpen, onOpen, onClose } = useDisclosure()
     const cancelRef = React.useRef()
     const toast = useToast()
@@ -41,15 +42,7 @@ const ModiyUserButton = ({ status, modifyuser }) => {
                         <Button ref={cancelRef} onClick={onClose}>
                             No
                         </Button>
-                        {status === "admin" ? <Button colorScheme='red' isDisabled ml={3} ref={cancelRef} onClick={() => {
-                            toast({
-                                title: 'User Details Updeted',
-                                description: "We've created your account for you.",
-                                status: 'sucess',
-                                duration: 3000,
-                                isClosable: true,
-                            })
-                        }}> Can't </Button> :
+                        {status === "admin" ? <Button colorScheme='red' isDisabled ml={3} ref={cancelRef}> Can't </Button> :
 
                             <Button colorScheme='red' ml={3} ref={cancelRef} onClick={() => {
                                 modifyuser()
