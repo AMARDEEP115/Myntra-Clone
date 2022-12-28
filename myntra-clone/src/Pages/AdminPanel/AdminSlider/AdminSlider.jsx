@@ -26,10 +26,7 @@ const AdminSlider = ({ setTheme, setTogalDash }) => {
 
     return (
         <div className='sidebar'>
-            <div className="top">
-                <span className="logo">Admin</span>
-            </div>
-            <hr />
+          
 
             <div className="center">
                 <ul>

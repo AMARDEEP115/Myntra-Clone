@@ -1,93 +1,161 @@
-import React from 'react'
-import SearchIcon from '@mui/icons-material/Search';
-import LanguageIcon from '@mui/icons-material/Language';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import ListIcon from '@mui/icons-material/List';
-import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
+import "./AdminNav.css";
 
-import GamesIcon from '@mui/icons-material/Games';
-import WbSunnyIcon from '@mui/icons-material/WbSunny';
-import "./AdminNav.scss"
-import { MenuButton, MenuItem, MenuList, Menu, IconButton, InputGroup ,InputRightElement,Input} from '@chakra-ui/react';
-import AddUser from '../AddNewProduct/AddUser';
-import AddNewProduct from '../AddNewProduct/AddNewProduct';
-import NotificationCard from '../Dashboard/Card/NotificationCard';
+import { useRef, useState } from "react";
 
+import { HiOutlineShoppingBag } from "react-icons/hi";
+import { IoMdHeartEmpty } from "react-icons/io";
+import React from 'react';
+import { SlMagnifier } from "react-icons/sl";
+import { SlUser } from "react-icons/sl";
+import styles from "./AdminNav.module.css";
+import { Link } from "react-router-dom";
+import Logout from "../Dashboard/Card/Logout";
+import { useDispatch } from "react-redux";
+import { getProductAdmin } from "../../../REDUX/AdminRedux/action";
+import NavSlider from "./NavSlider";
 
+export default function AdminNav({ setTogalDash }) {
+    const [q, setQ] = useState("")
+    const focusRef = useRef(null)
+    const [dropdwn, setdropdwn] = useState(false);
+    const activeB = (x) => {
+        if (x) {
+            focusRef.current.className = styles.activeB
+        } else {
+            focusRef.current.className = null
+        }
+    }
+    const searchData = () => {
+        alert('yet to be declared '+q)
+    }
+    const dispatch = useDispatch()
 
-const AdminNav = ({ theme, setTheme }) => {
     return (
-        <div className={!theme ? "navbar":"navbarDark"}>
-            <div className="wraper">
+        <div className={styles.stick}>
+
+            <div className={styles.main}>
+
                 <div>
-                    <InputGroup>
-                        <InputRightElement
-                            pointerEvents='none'
-                            children={<SearchIcon color='gray.300' />}
-                        />
-                        <Input type='text' placeholder='Search For Quarry'  w={600}/>
-                    </InputGroup>
-                </div>
-                <div className="items">
-                    <div className="item">
-                    <Menu >
-                            {({ isOpen }) => (
-                                <>
-                                <LanguageIcon />
-                                    <MenuButton isActive={isOpen}  >
-                                        {isOpen ? 'English' : 'English'}
-                                    </MenuButton>
-                                    <MenuList bg={theme ? "black":"white"}>
-                                        <MenuItem bg={theme ? "black":"white"}>English</MenuItem>
-                                        <MenuItem bg={theme ? "black":"white"}>French</MenuItem>
-                                    </MenuList>
-                                </>
-                            )}
-                        </Menu>
+                    <div>
+                        <Link to="/"><img src={"https://doubtful-bell-2631.netlify.app/static/media/Myntra.64e73cf807ba3072649f.png"} width="40px" height={"45px"} alt="" /></Link>
+                    </div>
+                    <div id="links">
+                        <div className={styles.navpadding}  onClick={() => {
+                            dispatch(getProductAdmin("men")).then(() => {
+                                setTogalDash("product")
+                            })
+                        }}>
+
+                            MEN
+                        </div>
+                        <div className={styles.navpadding} onClick={() => {
+                            dispatch(getProductAdmin("women")).then(() => {
+                                setTogalDash("product")
+                            })
+                        }}>
+
+                            Women
+                        </div>
+                        <div className={styles.navpadding} onClick={() => {
+                            dispatch(getProductAdmin("kids")).then(() => {
+                                setTogalDash("product")
+                            })
+                        }}>
+
+                            Kids
+                        </div>
+                        <div className={styles.navpadding} onClick={() => {
+                            dispatch(getProductAdmin("order")).then(() => {
+                                setTogalDash("product")
+                            })
+                        }}>
+
+                            Orders
+                        </div>
+                        <div className={styles.navpadding} onClick={() => {
+                            dispatch(getProductAdmin("order")).then(() => {
+                                setTogalDash("product")
+                            })
+                        }}>
+
+                            Delevry
+                        </div>
+
+
+                        <div className={styles.navpadding}>
+                            STUDIO <sup style={{ color: "#ff3f6c", fontWeight: "600", fontSize: "10px" }}>NEW</sup>
+                        </div>
                     </div>
 
-                    <div className="item" onClick={() => setTheme(prev => !prev)}>
-                        {
-                            !theme ? <DarkModeIcon className='icon' /> : <WbSunnyIcon className='icon' />
-                        }
+                </div>
+
+                <div >
+                    <div ref={focusRef} id="search">
+                        <div>
+                            <SlMagnifier className={styles.icon} />
+                            <input onChange={(e) => setQ(e.target.value)}
+
+                                onKeyDown={(e) => {
+                                    if (e.code === "Enter") {
+                                        searchData()
+                                    }
+                                }}
+
+                                onMouseEnter={() => activeB(true)} onMouseLeave={() => activeB(false)} type="text" placeholder="Search for products, brands and more" />
+                        </div>
+                    </div>
+                    <div id="sidelogo">
+                        <div onMouseEnter={() => setdropdwn(true)} onMouseLeave={() => setdropdwn(false)} className={styles.profile}>
+                            < SlUser />
+                            <p>Profile</p>
+
+                            <div className={dropdwn ? styles.dropDown : styles.dropDown_hidden}>
+                                <div>
+                                    <div>
+                                        <b>Welcome</b>
+                                        <p style={{ fontWeight: "400" }}>
+                                            To access account and manage orders
+                                        </p>
+                                    </div>
+                                    <Link to="/login"><button>LOGIN/SIGNUP</button></Link>
+                                </div>
+
+                                <div style={{ fontSize: "20px" }}>
+                                    <p>Orders</p>
+                                </div>
+                                <div>
+                                    <p>Wishlist</p>
+                                </div>
+                                <div>
+                                    <p>Gift Cards</p>
+                                </div>
+                                <div>
+                                    <p><Logout /></p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <Link to="/wishlist"><div style={{ cursor: "pointer" }} className={styles.navpadding} >
+                            <IoMdHeartEmpty />
+                            <p>Wishlist</p>
+                        </div>
+                        </Link>
+                        <Link to="/cart"> <div style={{ cursor: "pointer" }} className={styles.navpadding}>
+                            <HiOutlineShoppingBag />
+                            <p>Bag</p>
+                        </div>
+                        </Link>
+
+                    </div>
+                    <div id="navsidebar">
+                        <NavSlider />
                     </div>
 
-                    <div className="item"> <GamesIcon className='icon' /></div>
-                    <div className="item"> <ChatBubbleIcon className='icon' /></div>
-                    <div className="item">
-                        <Menu>
-                            <MenuButton
-                                as={IconButton}
-                                aria-label='Options'
-                                icon={<ListIcon />}
-                                variant='outline'
-                                className='icon'
-                                border="none"
-                            />
-                            <MenuList>
-                                <MenuItem >
-                                   <AddUser/>
-                                </MenuItem>
-                                <MenuItem >
-                                   <AddNewProduct/>
-                                </MenuItem>
-                                <MenuItem >
-                                    <NotificationCard/>
-                                </MenuItem>
-                                <MenuItem >
-                                System Information
-                                   
-                                </MenuItem>
-                            </MenuList>
-                        </Menu>
-                    </div>
-                    <div className="item">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkpclgdZQ3ZHBh6xTt4wlROP30NE_GY7MdVw&usqp=CAU" className='avtar' alt="" />
-                    </div>
+
                 </div>
+
             </div>
         </div>
     )
-}
-
-export default AdminNav
+};

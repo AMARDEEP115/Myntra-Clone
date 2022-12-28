@@ -10,7 +10,6 @@ const AdminPanel = () => {
     const [theme, setTheme] = useState(false)
     const dispatch = useDispatch()
     const [togalDash, setTogalDash] = useState("")
-    console.log('togalDash:', togalDash)
 
     useEffect(() => {
         dispatch(getProductAdmin("Dashboard")).then(()=>{
@@ -22,10 +21,12 @@ const AdminPanel = () => {
 
     return (
         <div className={!theme ? "home" : "homeDark"}>
-            <AdminSlider theme={theme} setTheme={setTheme} setTogalDash={setTogalDash} />
-            <div className="homeContainer">
+            <AdminNav theme={theme} setTheme={setTheme} setTogalDash={setTogalDash} />
 
-                <AdminNav theme={theme} setTheme={setTheme} />
+            <div className="homeContainer">
+            <AdminSlider theme={theme} setTheme={setTheme} setTogalDash={setTogalDash} />
+
+
                 <Dashboard theme={theme} togalDash={togalDash} setTogalDash={setTogalDash} />
 
             </div>
