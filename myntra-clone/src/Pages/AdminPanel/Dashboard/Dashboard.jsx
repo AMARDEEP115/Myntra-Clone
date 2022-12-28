@@ -16,7 +16,7 @@ const Dashboard = ({ theme, togalDash, setTogalDash }) => {
     }
     if (togalDash === "dash") {
         return (
-            <Grid display="grid" gridTemplateColumns="1fr 1fr 1fr 1fr" gap="10px" p="0px" className='dashContainer' >
+            <Grid   gap="10px" p="0px" className='dashContainer' >
                 {
                     data.length > 0 && data.map(el => {
                         return (
@@ -30,7 +30,7 @@ const Dashboard = ({ theme, togalDash, setTogalDash }) => {
 
     if (togalDash === "product") {
         return (
-            <Grid display="grid" gridTemplateColumns="1fr 1fr 1fr 1fr" gap="10px" p="0px" className='dashContainer' >
+            <Grid  gap="10px" p="0px" className='dashContainer' >
                 {
                     data.length > 1 && data.map(el => {
                         return (
@@ -45,7 +45,7 @@ const Dashboard = ({ theme, togalDash, setTogalDash }) => {
 
     if (togalDash === "user") {
         return (
-            <Grid display="grid" gridTemplateColumns="1fr 1fr 1fr 1fr" gap="10px" p="0px" className='dashContainer' >
+            <Grid  gap="10px" p="0px" className='dashContainer' >
                 {
                     data.length > 1 && data.map(el => {
                         return (
