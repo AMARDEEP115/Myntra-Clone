@@ -13,8 +13,9 @@ import Logout from "../Dashboard/Card/Logout";
 import { useDispatch } from "react-redux";
 import { getProductAdmin } from "../../../REDUX/AdminRedux/action";
 import NavSlider from "./NavSlider";
+import { Button } from "@chakra-ui/react";
 
-export default function AdminNav({ setTogalDash }) {
+export default function AdminNav({ setTogalDash, setTheme }) {
     const [q, setQ] = useState("")
     const focusRef = useRef(null)
     const [dropdwn, setdropdwn] = useState(false);
@@ -26,7 +27,7 @@ export default function AdminNav({ setTogalDash }) {
         }
     }
     const searchData = () => {
-        alert('yet to be declared '+q)
+        alert('yet to be declared ' + q)
     }
     const dispatch = useDispatch()
 
@@ -36,55 +37,80 @@ export default function AdminNav({ setTogalDash }) {
             <div className={styles.main}>
 
                 <div>
-                    <div>
-                        <Link to="/"><img src={"https://doubtful-bell-2631.netlify.app/static/media/Myntra.64e73cf807ba3072649f.png"} width="40px" height={"45px"} alt="" /></Link>
+                    <div className="mlogo">
+                        <Link to="/admin"><img src={"https://doubtful-bell-2631.netlify.app/static/media/Myntra.64e73cf807ba3072649f.png"} width="40px" height={"45px"} alt="" /></Link>
                     </div>
                     <div id="links">
-                        <div className={styles.navpadding}  onClick={() => {
+                        <Button className="link" bg="transparent" _hover={{
+                            background: "transparent",
+                            borderBottom: "1px solid #444",
+                            borderRadius: "0px",
+
+                        }} onClick={() => {
                             dispatch(getProductAdmin("men")).then(() => {
                                 setTogalDash("product")
                             })
                         }}>
 
                             MEN
-                        </div>
-                        <div className={styles.navpadding} onClick={() => {
+                        </Button>
+                        <Button className="link" bg="transparent" _hover={{
+                            background: "transparent",
+                            borderBottom: "1px solid black",
+                            borderRadius: "0px"
+                        }} onClick={() => {
                             dispatch(getProductAdmin("women")).then(() => {
                                 setTogalDash("product")
                             })
                         }}>
 
                             Women
-                        </div>
-                        <div className={styles.navpadding} onClick={() => {
+                        </Button>
+                        <Button className="link" bg="transparent" _hover={{
+                            background: "transparent",
+                            borderBottom: "1px solid black",
+                            borderRadius: "0px"
+                        }} onClick={() => {
                             dispatch(getProductAdmin("kids")).then(() => {
                                 setTogalDash("product")
                             })
                         }}>
 
                             Kids
-                        </div>
-                        <div className={styles.navpadding} onClick={() => {
+                        </Button>
+                        <Button className="link" bg="transparent" _hover={{
+                            background: "transparent",
+                            borderBottom: "1px solid black",
+                            borderRadius: "0px"
+                        }} onClick={() => {
                             dispatch(getProductAdmin("order")).then(() => {
                                 setTogalDash("product")
                             })
                         }}>
 
                             Orders
-                        </div>
-                        <div className={styles.navpadding} onClick={() => {
+                        </Button>
+                        <Button className="link" bg="transparent" _hover={{
+                            background: "transparent",
+                            borderBottom: "1px solid black",
+                            borderRadius: "0px"
+                        }} onClick={() => {
                             dispatch(getProductAdmin("order")).then(() => {
                                 setTogalDash("product")
                             })
                         }}>
 
                             Delevry
-                        </div>
+                        </Button>
 
 
-                        <div className={styles.navpadding}>
+                        <Button className="link" bg="transparent" _hover={{
+                            background: "transparent",
+                            borderBottom: "1px solid black",
+                            borderRadius: "0px"
+                        }}>
                             STUDIO <sup style={{ color: "#ff3f6c", fontWeight: "600", fontSize: "10px" }}>NEW</sup>
-                        </div>
+                        </Button>
                     </div>
 
                 </div>
@@ -149,7 +175,7 @@ export default function AdminNav({ setTogalDash }) {
 
                     </div>
                     <div id="navsidebar">
-                        <NavSlider />
+                        <NavSlider setTogalDash={setTogalDash} setTheme={setTheme} />
                     </div>
 
 

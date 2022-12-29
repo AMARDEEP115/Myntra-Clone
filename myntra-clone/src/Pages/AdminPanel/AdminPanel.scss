@@ -11,9 +11,13 @@
 }
 .homeDark {
   background-color: #080b15;
+
   display: grid;
-  grid-template-columns: 15% 85%;
   user-select: none;
+  .homeContainer {
+    display: grid;
+    grid-template-columns: 15% 85%;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -21,26 +25,38 @@
     display: grid;
     user-select: none;
     .homeContainer {
-        display: grid;
-        grid-template-columns:1fr;
-      }
-  
+      display: grid;
+      grid-template-columns: 1fr;
+    }
   }
   .homeDark {
     background-color: #080b15;
     display: grid;
-
     user-select: none;
+    .homeContainer {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
   }
 }
 @media (max-width: 680px) {
   .home {
     display: grid;
     user-select: none;
+    width: 100%;
+    border: 1px solid black;
+    .homeContainer {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
   }
   .homeDark {
     background-color: #080b15;
     display: grid;
     user-select: none;
+    .homeContainer {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
   }
 }

@@ -18,6 +18,8 @@ import NotificationCard from '../Dashboard/Card/NotificationCard';
 import ProfileCard from '../Dashboard/Card/ProfileCard';
 import { getProductAdmin } from '../../../REDUX/AdminRedux/action';
 import Logout from '../Dashboard/Card/Logout';
+import AddUser from '../AddNewProduct/AddUser';
+import AddNewProduct from '../AddNewProduct/AddNewProduct';
 
 
 
@@ -80,8 +82,8 @@ const AdminSlider = ({ setTheme, setTogalDash }) => {
                     <p className="title">SERVICES</p>
 
                     <li><HealthAndSafetyIcon className='icon' /><span>System Health</span></li>
-                    <li><PsychologyIcon className='icon' /><span>Logs </span></li>
-                    <li><SettingsIcon className='icon' /><span>Settings</span></li>
+                    <li><PsychologyIcon className='icon' /><span><AddUser/></span></li>
+                    <li><SettingsIcon className='icon' /><span><AddNewProduct/></span></li>
                     <p className="title">USER</p>
 
                     <li><PersonOutlineIcon className='icon' /><ProfileCard /></li>

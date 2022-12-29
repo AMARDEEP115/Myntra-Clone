@@ -7,7 +7,7 @@ import { getProductAdmin } from '../../../../REDUX/AdminRedux/action'
 const DashboardCard = ({ el, theme, setTogalDash }) => {
     const dispatch = useDispatch()
     return (
-        <Card maxW='sm' boxShadow="lg" color={theme && "white"} p={5} onClick={() => {
+        <Card boxShadow="lg" color={theme && "white"} p={5} onClick={() => {
             dispatch(getProductAdmin(el?.parem))
             el.parem === "user" ? setTogalDash("user") : setTogalDash("product")
 
