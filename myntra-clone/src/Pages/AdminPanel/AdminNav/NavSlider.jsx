@@ -31,7 +31,6 @@ import NotificationCard from '../Dashboard/Card/NotificationCard';
 import ProfileCard from '../Dashboard/Card/ProfileCard';
 import Logout from '../Dashboard/Card/Logout';
 import "./Navslider.scss"
-import { Link } from 'react-router-dom';
 function NavSlider({ setTogalDash, setTheme }) {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const dispatch = useDispatch()
