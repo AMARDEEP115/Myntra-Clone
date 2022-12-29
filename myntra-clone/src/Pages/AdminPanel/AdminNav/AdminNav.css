@@ -1,11 +1,11 @@
-#app { height: 100% }
+#app {
+  height: 100%;
+}
 html,
 body {
   position: relative;
   height: 100%;
 }
-
-
 
 .swiper {
   width: 100%;
@@ -37,23 +37,38 @@ body {
   height: 100%;
   object-fit: cover;
 }
-#navsidebar{
+.mlogo {
+  margin-left: -40px;
+}
+#navsidebar {
   display: none;
 }
 @media (max-width: 1024px) {
-  #search{
+  #search {
     display: none;
   }
-  #sidelogo{
+  #sidelogo {
     gap: 20px;
     position: relative;
     left: 250px;
   }
-  #links{
+  #links {
     margin-left: 20px;
-
+    display: none;
   }
-
+  .mlogo {
+    margin-left: -450px;
+  }
+  #sidelogo {
+    display: none;
+  }
+  #navsidebar {
+    display: grid;
+    height: 71px;
+    justify-content: center;
+    align-items: center;
+    font-size:'100px';
+    position: relative;
+    left: 350px;
+  }
 }
-
-

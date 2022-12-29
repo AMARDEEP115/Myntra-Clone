@@ -14,7 +14,7 @@ import { useDispatch } from "react-redux";
 import { getProductAdmin } from "../../../REDUX/AdminRedux/action";
 import NavSlider from "./NavSlider";
 
-export default function AdminNav({ setTogalDash }) {
+export default function AdminNav({ setTogalDash,setTheme }) {
     const [q, setQ] = useState("")
     const focusRef = useRef(null)
     const [dropdwn, setdropdwn] = useState(false);
@@ -36,8 +36,8 @@ export default function AdminNav({ setTogalDash }) {
             <div className={styles.main}>
 
                 <div>
-                    <div>
-                        <Link to="/"><img src={"https://doubtful-bell-2631.netlify.app/static/media/Myntra.64e73cf807ba3072649f.png"} width="40px" height={"45px"} alt="" /></Link>
+                    <div className="mlogo">
+                        <Link to="/admin"><img src={"https://doubtful-bell-2631.netlify.app/static/media/Myntra.64e73cf807ba3072649f.png"} width="40px" height={"45px"} alt="" /></Link>
                     </div>
                     <div id="links">
                         <div className={styles.navpadding}  onClick={() => {
@@ -149,7 +149,7 @@ export default function AdminNav({ setTogalDash }) {
 
                     </div>
                     <div id="navsidebar">
-                        <NavSlider />
+                        <NavSlider setTogalDash={setTogalDash} setTheme={setTheme} />
                     </div>
 
 
