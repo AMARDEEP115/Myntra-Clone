@@ -72,3 +72,31 @@ body {
     left: 350px;
   }
 }
+@media (max-width: 680px) {
+  #search {
+    display: none;
+  }
+  #sidelogo {
+    gap: 20px;
+    position: relative;
+    left: 250px;
+  }
+  #links {
+    display: none;
+  }
+  .mlogo {
+    margin-left: 0;
+  }
+  #sidelogo {
+    display: none;
+  }
+  #navsidebar {
+    display: grid;
+    height: 71px;
+    justify-content: center;
+    align-items: center;
+    font-size:'100px';
+    position: relative;
+    left: 0;
+  }
+}

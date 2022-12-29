@@ -20,7 +20,7 @@ const Dashboard = ({ theme, togalDash, setTogalDash }) => {
                 {
                     data.length > 0 && data.map(el => {
                         return (
-                            <DashboardCard key={el.id} el={el} theme={theme} setTogalDash={setTogalDash} />
+                            <DashboardCard key={el.id} el={el} theme={theme} setTogalDash={setTogalDash} className="container" />
                         )
                     })
                 }
@@ -34,7 +34,7 @@ const Dashboard = ({ theme, togalDash, setTogalDash }) => {
                 {
                     data.length > 1 && data.map(el => {
                         return (
-                            <ProductCard key={el.id} el={el} theme={theme} setTogalDash={setTogalDash} />
+                            <ProductCard key={el.id} el={el} theme={theme} setTogalDash={setTogalDash} className="container" />
                         )
                     })
                 }
@@ -49,7 +49,7 @@ const Dashboard = ({ theme, togalDash, setTogalDash }) => {
                 {
                     data.length > 1 && data.map(el => {
                         return (
-                            <UserCard key={el.id} el={el} theme={theme} setTogalDash={setTogalDash} />
+                            <UserCard key={el.id} el={el} theme={theme} setTogalDash={setTogalDash}  />
 
                         )
                     })
